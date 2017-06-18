@@ -1,0 +1,273 @@
+<ion-header>
+	<ion-toolbar color="danger">
+		<button ion-button menuToggle>
+			<ion-icon class="custom-icon menu-toggle"></ion-icon>
+		</button>
+		<ion-title>
+			Electronics
+		</ion-title>
+
+		<ion-buttons end>
+			<button ion-button clear color="light"  (click)="goToCart()">
+				<ion-icon class="custom-icon bar-cart-icon"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="profile" no-scroll>
+	<ion-toolbar clear no-border class="top-toolbar">
+		<ion-row>
+			<ion-col width-25>
+				<button ion-button  clear color="dark">
+					<ion-icon class="custom-icon sort-icon"></ion-icon>
+					Sort
+				</button>
+			</ion-col>
+
+			<ion-col width-50>
+				<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+			</ion-col>
+
+			<ion-col width-25 text-right>
+				<button ion-button clear color="dark">
+					Categories
+					<ion-icon item-right class="custom-icon categories-icon"></ion-icon>
+				</button>
+			</ion-col>
+		</ion-row>
+
+	</ion-toolbar>
+
+	<ion-list class="product-list">
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="assets/imgs/product-small.png">
+			</ion-avatar>
+			<header>
+				<h2>Sony LCD 40 inch</h2>
+				<ion-icon name="md-heart-outline"></ion-icon>
+
+				<span class="price">$300</span>
+			</header>
+			<p>
+				Product brief, This product has been select for best design, and shall do what its made for, not more then that...
+			</p>
+
+			<footer>
+				<div class="rating">
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<strong>3</strong>
+					<span>/5 (200 Votes)</span>
+				</div>
+				<button ion-button color="assertive" item-right small>Add to Cart</button>
+			</footer>
+		</ion-item>
+
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="assets/imgs/product-small.png">
+			</ion-avatar>
+			<header>
+				<h2>Sony LCD 40 inch</h2>
+				<ion-icon name="md-heart-outline"></ion-icon>
+
+				<span class="price">$300</span>
+			</header>
+			<p>
+				Product brief, This product has been select for best design, and shall do what its made for, not more then that...
+			</p>
+
+			<footer>
+				<div class="rating">
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<strong>3</strong>
+					<span>/5 (200 Votes)</span>
+				</div>
+				<button ion-button color="assertive" small item-right>Add to Cart</button>
+			</footer>
+		</ion-item>
+
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="assets/imgs/product-small.png">
+			</ion-avatar>
+			<header>
+				<h2>Sony LCD 40 inch</h2>
+				<ion-icon name="md-heart-outline"></ion-icon>
+
+				<span class="price">$300</span>
+			</header>
+			<p>
+				Product brief, This product has been select for best design, and shall do what its made for, not more then that...
+			</p>
+
+			<footer>
+				<div class="rating">
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<strong>3</strong>
+					<span>/5 (200 Votes)</span>
+				</div>
+				<button ion-button color="assertive" small item-right>Add to Cart</button>
+			</footer>
+		</ion-item>
+
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="assets/imgs/product-small.png">
+			</ion-avatar>
+			<header>
+				<h2>Sony LCD 40 inch</h2>
+				<ion-icon name="md-heart-outline"></ion-icon>
+
+				<span class="price">$300</span>
+			</header>
+			<p>
+				Product brief, This product has been select for best design, and shall do what its made for, not more then that...
+			</p>
+
+			<footer>
+				<div class="rating">
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<strong>3</strong>
+					<span>/5 (200 Votes)</span>
+				</div>
+				<button ion-button color="assertive" small item-right>Add to Cart</button>
+			</footer>
+		</ion-item>
+
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="assets/imgs/product-small.png">
+			</ion-avatar>
+			<header>
+				<h2>Sony LCD 40 inch</h2>
+				<ion-icon name="md-heart-outline"></ion-icon>
+
+				<span class="price">$300</span>
+			</header>
+			<p>
+				Product brief, This product has been select for best design, and shall do what its made for, not more then that...
+			</p>
+
+			<footer>
+				<div class="rating">
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<strong>3</strong>
+					<span>/5 (200 Votes)</span>
+				</div>
+				<button ion-button color="assertive" small item-right>Add to Cart</button>
+			</footer>
+		</ion-item>
+
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="assets/imgs/product-small.png">
+			</ion-avatar>
+			<header>
+				<h2>Sony LCD 40 inch</h2>
+				<ion-icon name="md-heart-outline"></ion-icon>
+
+				<span class="price">$300</span>
+			</header>
+			<p>
+				Product brief, This product has been select for best design, and shall do what its made for, not more then that...
+			</p>
+
+			<footer>
+				<div class="rating">
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<strong>3</strong>
+					<span>/5 (200 Votes)</span>
+				</div>
+				<button ion-button color="assertive" small item-right>Add to Cart</button>
+			</footer>
+		</ion-item>
+
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="assets/imgs/product-small.png">
+			</ion-avatar>
+			<header>
+				<h2>Sony LCD 40 inch</h2>
+				<ion-icon name="md-heart-outline"></ion-icon>
+
+				<span class="price">$300</span>
+			</header>
+			<p>
+				Product brief, This product has been select for best design, and shall do what its made for, not more then that...
+			</p>
+
+			<footer>
+				<div class="rating">
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<strong>3</strong>
+					<span>/5 (200 Votes)</span>
+				</div>
+				<button ion-button color="assertive" small item-right>Add to Cart</button>
+			</footer>
+		</ion-item>
+
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="assets/imgs/product-small.png">
+			</ion-avatar>
+			<header>
+				<h2>Sony LCD 40 inch</h2>
+				<ion-icon name="md-heart-outline"></ion-icon>
+
+				<span class="price">$300</span>
+			</header>
+			<p>
+				Product brief, This product has been select for best design, and shall do what its made for, not more then that...
+			</p>
+
+			<footer>
+				<div class="rating">
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star" class="rating-color"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<ion-icon name="ios-star-half"></ion-icon>
+					<strong>3</strong>
+					<span>/5 (200 Votes)</span>
+				</div>
+				<button ion-button color="assertive" small item-right>Add to Cart</button>
+			</footer>
+		</ion-item>
+	</ion-list>
+</ion-content>
+<ion-fab bottom right round fixed>
+	<button ion-fab  color="secondary" class="button-fab">
+		Filter
+		<ion-icon class="custom-icon filter-icon"></ion-icon>
+	</button>
+</ion-fab>

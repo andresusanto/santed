@@ -1,0 +1,109 @@
+page-login {
+  .login {
+    background: url('../assets/imgs/background.jpg') center center no-repeat;
+    background-size: cover;
+
+    h2 {
+      margin-top:30px;
+      margin-bottom:5px;
+      color:#f1582c;
+      font-size:16px;
+      text-align:center;
+    }
+
+    .login-logo {
+      display:block;
+      width:95px;
+      height:95px;
+      background:url('../assets/imgs/santed.png');
+      background-size:100% 100%;
+      margin:90px auto 20px;
+
+      @media screen and (min-width: 600px) {
+        margin:120px auto 60px;
+      }
+    }
+
+    ion-list {
+      margin:0 50px;
+
+      @media screen and (min-width: 600px) {
+        width:50%;
+        margin:0 auto;
+      }
+
+      ion-item {
+        background:none;
+        padding:0;
+
+
+        &:first-child {
+          margin-bottom:20px;
+        }
+
+        .item-inner {
+          padding:0px;
+        }
+
+        &.item-input.input-has-focus .item-inner {
+          border:0;
+          box-shadow:none;
+        }
+
+        ion-input {
+          padding:2px;
+          background-color:#fff;
+          // border:solid 1px #f1582c;
+          height:38px;
+
+          .text-input {
+            height:32px;
+            text-align:center;
+            margin:0;
+            width:100% !important;
+
+            &:focus {
+              width:100% !important;
+            }
+          }
+
+          &.input-has-focus {
+            .text-input {
+              width:100% !important;
+            }
+          }
+
+        }
+
+      }
+
+      .button {
+        font-size:20px;
+        color:#fff;
+        background-color:#f1582c;
+      }
+
+      ion-grid,
+        ion-col {
+          padding:0;
+          margin-top:50px;
+
+          a {
+            color:#FFF;
+            text-decoration:underline;
+            font-size:11px;
+            white-space:nowrap;
+            margin:0 10px;
+          }
+        }
+    }
+
+    .social-connect {
+      position:relative;
+      bottom:0px;
+      width:100%;
+      left:0;
+    }
+  }
+
+}

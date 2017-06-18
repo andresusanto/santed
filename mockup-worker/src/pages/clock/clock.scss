@@ -1,0 +1,16 @@
+page-clock {
+    .list-header-md {
+        margin-bottom: 0px;
+    }
+    .item-block {
+        border-bottom: 0px;
+        .item-inner {
+            border-bottom: 0px !important;
+        }
+    }
+    .note-md {
+        position: absolute;
+        right: 15px;
+        font-size: 1.4rem;
+    }
+}

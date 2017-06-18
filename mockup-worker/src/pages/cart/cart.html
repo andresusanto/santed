@@ -1,0 +1,88 @@
+<ion-header>
+	<ion-toolbar color="danger">
+		<button ion-button menuToggle>
+			<ion-icon class="custom-icon menu-toggle"></ion-icon>
+		</button>
+		<ion-title>
+			My Cart
+		</ion-title>
+
+		<ion-buttons end>
+			<button ion-button clear color="light">
+				<ion-icon class="custom-icon bar-cart-icon"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="cart" no-scroll>
+	<ion-toolbar clear no-border class="top-toolbar">
+		<ion-row>
+			<ion-col width-50>
+				<button ion-button clear color="dark">
+					<ion-icon class="custom-icon back-icon"></ion-icon>
+					Back
+				</button>
+			</ion-col>
+
+			<ion-col width-50 text-right>
+				<button ion-button clear color="dark">
+					Categories
+					<ion-icon item-right class="custom-icon categories-icon"></ion-icon>
+				</button>
+			</ion-col>
+		</ion-row>
+	</ion-toolbar>
+
+	<div text-center>
+		10:30 PM, Monday 28, June, 2016
+	</div>
+	<ion-list class="cart-summary">
+		<ion-item>
+			<ion-row>
+				<ion-col width-50 text-right>
+					<div>Total Items :</div>
+					<div>Subtotal :</div>
+					<div>Shipping Charger :</div>
+					<div><strong>Total Amount :</strong></div>
+				</ion-col>
+
+				<ion-col width-50>
+					<div>7</div>
+					<div>$ 3850</div>
+					<div>$ 250</div>
+					<div><strong>$ 4100</strong></div>
+				</ion-col>
+			</ion-row>
+		</ion-item>
+	</ion-list>
+
+	<ion-list class="cart-items">
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="assets/imgs/product-small.png">
+			</ion-avatar>
+
+			<h2>Samsung Ultra Sharp</h2>
+			<span class="quantity">
+				Qty
+				<input type="numer" value="1" />
+			</span>
+			x
+			<strong class="price success">$550</strong>
+
+
+			<button ion-button item-right clear color="dark">
+				<ion-icon name="ios-close-circle-outline"></ion-icon>
+				Remove
+			</button>
+		</ion-item>
+	</ion-list>
+
+</ion-content>
+
+<ion-footer>
+	<button ion-button color="primary" full (click)="goToCheckout()">
+		CONTINUE CHECKOUT
+	</button>
+</ion-footer>

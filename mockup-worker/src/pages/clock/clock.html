@@ -1,0 +1,29 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons left>
+            <button ion-button (click)="goBack()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+		<ion-title>
+			Clock in/out
+		</ion-title>
+
+		<ion-buttons end >
+			<button ion-button clear color="light">
+				<ion-icon name="notifications"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="clock" no-scroll>
+	<div style="text-align:center; margin-top:22px" >
+        <img style="height:300px" src="assets/imgs/qrcode.jpg">
+    </div>
+    <div style="text-align:center; margin-top: 50px;" > 
+        <h3>You are currently clocking in </h3>
+        <h2 style="margin-top: 0px;font-size: 2.1rem;margin-bottom: 0.3rem;">at <span style="color: #f1582c;">Megapole X, from Gate 8 </span></h2>
+        <h2 style="margin-top: 0px;font-size: 1.8rem;">for <span style="color: #f1582c;">44 Days, 13 Hours and 33 Minutes </span></h2>
+    </div>
+</ion-content>

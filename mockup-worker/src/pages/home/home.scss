@@ -1,0 +1,27 @@
+page-home {
+  .home {
+
+    button {
+      height: auto;
+      font-size:13px;
+      margin: 13px 0;
+      box-shadow:none;
+
+      .button-inner {
+        display:block;
+      }
+
+      ion-icon {
+        border:solid 1px #b8b0b0;
+        background-color: #e7e5e5;
+        border-radius:50%;
+        display: block;
+        margin:0 auto 3px;
+
+        background-size: 75% 75% !important;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+      }
+    }
+  }
+}

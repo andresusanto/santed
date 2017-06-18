@@ -1,0 +1,83 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons left>
+            <button ion-button (click)="goBack()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+		<ion-title>
+			Projects
+		</ion-title>
+
+		<ion-buttons end >
+			<button ion-button clear color="light">
+				<ion-icon name="notifications"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="project" no-scroll>
+	<ion-list>
+        <ion-list-header>
+            Currently clockin in
+        </ion-list-header>
+        <ion-item (click)="goToPLog()">
+            Sigma Sasolburg, Zone A
+            <ion-note item-end>
+                Current: 9H 25m 
+            </ion-note>
+        </ion-item>
+        <ion-list-header>
+            Active project
+        </ion-list-header>
+        <ion-item>
+            Sigma Sasolburg
+            <ion-note item-end>
+                Total: 3D 9H 25m 
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            Trichard Mine X
+            <ion-note item-end>
+                Total: 15D 7H 20m 
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            Monopole Y
+            <ion-note item-end>
+                Total: 14D 12H 40m 
+            </ion-note>
+        </ion-item>
+        <ion-list-header>
+            Future project
+        </ion-list-header>
+        <ion-item>
+            Swayn Lok
+            <ion-note item-end>
+                In 3 months
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            Bicraypt Neo
+            <ion-note item-end>
+                In 5 months
+            </ion-note>
+        </ion-item>
+        <ion-list-header>
+            Past project
+        </ion-list-header>
+        <ion-item>
+            Amber Revu
+            <ion-note item-end>
+                7 Months ago
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            Yolay Ven
+            <ion-note item-end>
+                12 Months ago
+            </ion-note>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,185 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons left>
+            <button ion-button (click)="goBack()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+		<ion-title>
+			Safety
+		</ion-title>
+
+		<ion-buttons end >
+			<button ion-button clear color="light">
+				<ion-icon name="notifications"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="safety" no-scroll>
+    <ion-list>
+        <ion-list-header>
+            Active Project Sites
+        </ion-list-header>
+        <ion-item (click)="goToPLog()">
+            Thebulisha Mine
+            <ion-row style="color: #8e8e8e;" no-padding>
+                Everything normal
+            </ion-row>
+            <ion-row no-padding>
+                <ion-col>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='thermometer'></ion-icon>
+                    38 °C
+                    </button>
+                </ion-col>
+                <ion-col text-center>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='speedometer'></ion-icon>
+                    766 mmHg
+                    </button>
+                </ion-col>
+                <ion-col text-right>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='checkmark'></ion-icon>
+                    SAFE
+                    </button>
+                </ion-col>
+                </ion-row>
+        </ion-item>
+        <ion-item (click)="goToPLog()">
+            Simunye
+            <ion-row style="color: #8e8e8e;" no-padding>
+                Everything normal
+            </ion-row>
+            <ion-row no-padding>
+                <ion-col>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='thermometer'></ion-icon>
+                    37 °C
+                    </button>
+                </ion-col>
+                <ion-col text-center>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='speedometer'></ion-icon>
+                    765 mmHg
+                    </button>
+                </ion-col>
+                <ion-col text-right>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='checkmark'></ion-icon>
+                    SAFE
+                    </button>
+                </ion-col>
+                </ion-row>
+        </ion-item>
+        <ion-item (click)="goToPLog()">
+            Brandspruit
+            <ion-row style="color: #8e8e8e;" no-padding>
+                Everything normal
+            </ion-row>
+            <ion-row no-padding>
+                <ion-col>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='thermometer'></ion-icon>
+                    38 °C
+                    </button>
+                </ion-col>
+                <ion-col text-center>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='speedometer'></ion-icon>
+                    767 mmHg
+                    </button>
+                </ion-col>
+                <ion-col text-right>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='checkmark'></ion-icon>
+                    SAFE
+                    </button>
+                </ion-col>
+                </ion-row>
+        </ion-item>
+        <ion-list-header>
+            All Sites
+        </ion-list-header>
+        <ion-item (click)="goToPLog()">
+            Middelbult
+            <ion-row style="color: #8e8e8e;" no-padding>
+                Increasing pressure detected. Proceed with caution.
+            </ion-row>
+            <ion-row no-padding>
+                <ion-col>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='thermometer'></ion-icon>
+                    39 °C
+                    </button>
+                </ion-col>
+                <ion-col text-center>
+                    <button ion-button clear small style="color:#b50707" icon-start>
+                    <ion-icon name='speedometer'></ion-icon>
+                    900 mmHg
+                    </button>
+                </ion-col>
+                <ion-col text-right>
+                    <button ion-button clear small style="color:#b50707" icon-start>
+                    <ion-icon name='warning'></ion-icon>
+                    Warning
+                    </button>
+                </ion-col>
+                </ion-row>
+        </ion-item>
+        <ion-item (click)="goToPLog()">
+            Synferfontein
+            <ion-row style="color: #8e8e8e;" no-padding>
+                Everything normal
+            </ion-row>
+            <ion-row no-padding>
+                <ion-col>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='thermometer'></ion-icon>
+                    37 °C
+                    </button>
+                </ion-col>
+                <ion-col text-center>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='speedometer'></ion-icon>
+                    780 mmHg
+                    </button>
+                </ion-col>
+                <ion-col text-right>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='checkmark'></ion-icon>
+                    SAFE
+                    </button>
+                </ion-col>
+                </ion-row>
+        </ion-item>
+        <ion-item (click)="goToPLog()">
+            Bosjesspruit
+            <ion-row style="color: #8e8e8e;" no-padding>
+                Everything normal
+            </ion-row>
+            <ion-row no-padding>
+                <ion-col>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='thermometer'></ion-icon>
+                    36 °C
+                    </button>
+                </ion-col>
+                <ion-col text-center>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='speedometer'></ion-icon>
+                    740 mmHg
+                    </button>
+                </ion-col>
+                <ion-col text-right>
+                    <button ion-button clear small style="color:#28c318" icon-start>
+                    <ion-icon name='checkmark'></ion-icon>
+                    SAFE
+                    </button>
+                </ion-col>
+                </ion-row>
+        </ion-item>
+    </ion-list>
+</ion-content>

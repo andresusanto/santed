@@ -1,0 +1,363 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+ion-content {
+  background: color($colors, extraLight);
+}
+
+.text-center {
+  text-align: center;
+}
+.outer-content {
+  margin-top:12px;
+}
+.custom-icon {
+  background-size:100% 100% !important;
+  display:inline-block;
+  vertical-align:middle;
+  min-width: 5px !important;
+
+
+  &.menu-toggle {
+    background-image: url('../assets/imgs/icons/menu-toggle.png');
+    height:18px;
+    width:18px;
+  }
+  &.bar-cart-icon {
+    height:20px;
+    width:20px;
+    background-image: url('../assets/imgs/icons/bar-cart-icon.png');
+  }
+  &.orders-icon {
+    height:36px;
+    width:36px;
+    background-image: url('../assets/imgs/icons/orders-icon.png');
+  }
+  &.addresses-icon {
+    height:36px;
+    width:36px;
+    background-image: url('../assets/imgs/icons/addresses-icon.png');
+  }
+  &.logout-icon {
+    height:36px;
+    width:36px;
+    background-image: url('../assets/imgs/icons/logout-icon.png');
+  }
+  &.wallet-icon {
+    height:36px;
+    width:36px;
+    background-image: url('../assets/imgs/icons/wallet-icon.png');
+  }
+  &.settings-icon {
+    height:36px;
+    width:36px;
+    background-image: url('../assets/imgs/icons/settings-icon.png');
+  }
+  &.reviews-icon {
+    height:36px;
+    width:36px;
+    background-image: url('../assets/imgs/icons/reviews-icon.png');
+  }
+  &.profile-edit-icon {
+    width:22px;
+    height:22px;
+    background-image: url('../assets/imgs/icons/profile-edit-icon.png');
+  }
+  &.categories-icon {
+    width:12px;
+    height:12px;
+    background-image: url('../assets/imgs/icons/categories-icon.png');
+  }
+  &.back-icon {
+    width:12px;
+    height:12px;
+    background-image: url('../assets/imgs/icons/back-arrow-icon.png');
+  }
+  &.sort-icon {
+    width:12px;
+    height:12px;
+    background-image: url('../assets/imgs/icons/sort-icon.png');
+  }
+  &.twitter-white-icon {
+    width:30px;
+    height:30px;
+    background-image: url('../assets/imgs/icons/twitter-white-icon.png');
+  }
+  &.facebook-white-icon {
+    width:30px;
+    height:30px;
+    background-image: url('../assets/imgs/icons/facebook-white-icon.png');
+  }
+  &.google-white-icon {
+    width:30px;
+    height:30px;
+    background-image: url('../assets/imgs/icons/google-plus-white-icon.png');
+  }
+  &.fashion-icon {
+    width:58px;
+    height:58px;
+    background-image: url('../assets/imgs/icons/fashion-icon.png');
+  }
+  &.phones-icon {
+    width:58px;
+    height:58px;
+    background-image: url('../assets/imgs/icons/phones-icon.png');
+  }
+  &.electronics-icon {
+    width:58px;
+    height:58px;
+    background-image: url('../assets/imgs/icons/electronics-icon.png');
+  }
+  &.furniture-icon {
+    width:58px;
+    height:58px;
+    background-image: url('../assets/imgs/icons/furniture-icon.png');
+  }
+  &.auto-icon {
+    width:58px;
+    height:58px;
+    background-image: url('../assets/imgs/icons/car-icon.png');
+  }
+  &.sports-icon {
+    width:58px;
+    height:58px;
+    background-image: url('../assets/imgs/icons/sports-icon.png');
+  }
+  &.real-estate-icon {
+    width:58px;
+    height:58px;
+    background-image: url('../assets/imgs/icons/real-estate-icon.png');
+  }
+  &.jobs-icon {
+    width:58px;
+    height:58px;
+    background-image: url('../assets/imgs/icons/jobs-icon.png');
+  }
+  &.accesories-icon {
+    width:58px;
+    height:58px;
+    background-image: url('../assets/imgs/icons/accesories-icon.png');
+  }
+  &.filter-icon {
+    width:22px;
+    height:22px;
+    background-image: url('../assets/imgs/icons/filter-white-icon.png');
+  }
+  &.calendar-icon {
+    width:17px;
+    height:18px;
+    background-image: url('../assets/imgs/icons/calendar-icon.png');
+  }
+  &.visa-icon {
+    width:28px;
+    height:10px;
+    background-image: url('../assets/imgs/icons/visa-icon.png');
+  }
+  &.mastercard-icon {
+    width:26px;
+    height:16px;
+    background-image: url('../assets/imgs/icons/mastercard-icon.png');
+  }
+  &.cvs-icon {
+    width:28px;
+    height:15px;
+    background-image: url('../assets/imgs/icons/cvs-icon.png');
+  }
+
+
+  @media screen and (min-width: 600px) {
+    &.fashion-icon,
+    &.phones-icon,
+    &.electronics-icon,
+    &.furniture-icon,
+    &.auto-icon,
+    &.sports-icon,
+    &.real-estate-icon,
+    &.jobs-icon,
+    &.accesories-icon {
+      width:100px;
+      height:100px;
+    }
+
+    &.orders-icon,
+  &.addresses-icon,
+  &.logout-icon,
+  &.wallet-icon,
+  &.settings-icon,
+  &.reviews-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  }
+}
+
+.toolbar.footer-icon {
+    padding:0;
+    position:absolute;
+    bottom:0;
+    left:0;
+    display:block;
+
+    .toolbar-background {
+      background:transparent;
+      width:100%;
+      padding:0;
+      border:none;
+   }
+
+   img {
+     width:100%;
+     height:auto;
+     display:block;
+   }
+
+   @media screen and (min-width: 600px) {
+    height: 180px;
+
+    .toolbar-background {
+      background: url('../assets/imgs/footer-icon-large.png') center bottom no-repeat;
+      background-size: auto 100%;
+    }
+    img {
+      display:none;
+    }
+  }
+}
+
+
+
+.toolbar {
+  &[clear] {
+    .toolbar-background {
+      background:transparent;
+      border:none;
+    }
+  }
+
+  button {
+    &[clear] {
+      background:transparent;
+    }
+  }
+
+  ion-grid,
+  ion-col {
+    padding:0;
+  }
+
+  &.top-toolbar {
+
+     padding:0;
+
+     button {
+        padding:0;
+        font-size:12px;
+        margin: 8px 0 0;
+
+       .custom-icon {
+         margin:0 4px;
+       }
+     }
+
+
+   }
+}
+
+ion-searchbar {
+  min-height:32px !important;
+  border:solid 2px #b6b6b6 !important;
+  border-radius:8px !important;
+  background:none !important;
+  margin:10px 5px 0 !important;
+  width:auto !important;
+  background:none !important;
+  padding:0 !important;
+
+  .searchbar-input-container {
+    border:none !important;
+  }
+
+  .searchbar-input {
+    background: none !important;
+    box-shadow: none !important;
+    line-height: 18px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    height: 28px !important;
+  }
+}
+
+.platform-android,
+.platform-core {
+  ion-searchbar {
+    .searchbar-search-icon {
+      top:5px !important;
+    }
+  }
+}
+
+ion-footer {
+  ion-col {
+    padding:0;
+  }
+
+  .button-full {
+    margin:0;
+    font-weight:bold;
+    font-size:14px;
+  }
+}
+.button-fab {
+  padding: 10px 5px;
+  box-shadow:-5px 5px 5px rgba(0, 0, 0, 0.3);
+  line-height:16px;
+  z-index:999;
+
+  .button-inner {
+    display:block;
+  }
+
+  ion-icon {
+    display:block;
+    margin:0 auto;
+  }
+
+  &[fab-right] {
+    right:30px;
+  }
+}
+
+textarea,
+input[type="text"],
+input[type="date"],
+input[type="button"],
+input[type="submit"] {
+  -webkit-appearance: none;
+}
+
+.themebg {
+  background:map-get($colors,theme);
+}
+
+
+.item-block {
+  border-bottom: 1px solid $list-ios-border-color;
+  border-top: 1px solid $list-ios-border-color;
+}

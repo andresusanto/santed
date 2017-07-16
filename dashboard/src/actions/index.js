@@ -10,3 +10,10 @@ export const closeHeaderMenu = () => {
     type: 'CLOSE_HEADER_MENU',
   }
 };
+
+export const updateDocumentTitle = (title) => {
+  return {
+    type: 'UPDATE_TITLE',
+    title,
+  }
+};

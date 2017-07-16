@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './Header.css';
-import { openHeaderMenu } from '../../actions';
+import { openHeaderMenu, closeHeaderMenu } from '../../actions';
 
 
 class NotificationIcon extends Component {
@@ -15,7 +15,11 @@ class NotificationIcon extends Component {
     };
 
     openContent(e) {
-        this.props.dispatch(openHeaderMenu(this.props.title));
+        if (this.props.opennedMenu === this.props.title) {
+            this.props.dispatch(closeHeaderMenu());
+        } else {
+            this.props.dispatch(openHeaderMenu(this.props.title));
+        }
         e.stopPropagation();
     }
 

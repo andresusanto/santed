@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './Header.css';
-import { openHeaderMenu } from '../../actions';
+import { openHeaderMenu, closeHeaderMenu } from '../../actions';
 
 const PROFILE_TITLE = "Profile";
 
@@ -15,7 +15,11 @@ class ProfileIcon extends Component {
 
 
     openContent(e) {
-        this.props.dispatch(openHeaderMenu(PROFILE_TITLE));
+        if (this.props.opennedMenu === PROFILE_TITLE) {
+            this.props.dispatch(closeHeaderMenu());
+        } else {
+            this.props.dispatch(openHeaderMenu(PROFILE_TITLE));
+        }
         e.stopPropagation();
     }
 

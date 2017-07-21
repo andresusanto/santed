@@ -6,7 +6,7 @@ import { pages } from '../../pages';
 import './Menu.css';
 
 class Menu extends Component {
-    static contextTypes = { router: React.PropTypes.object };
+    static contextTypes = { router: PropTypes.object };
 
     render() {
         return (

@@ -1,0 +1,15 @@
+.filter-button {
+    padding-top:26px;
+}
+
+.react-datepicker-wrapper {
+    display: inline;
+}
+
+.react-datepicker__input-container {
+    display: inline;
+}
+
+.react-datepicker-popper {
+    padding-top: 45px;
+}

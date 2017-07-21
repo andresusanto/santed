@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { updateDocumentTitle } from '../../actions';
 import ContentBox from '../../components/contentbox';
+import StatusBox from '../../components/statusbox';
 
 class OverviewPage extends Component {
     static propTypes = {
@@ -16,9 +17,17 @@ class OverviewPage extends Component {
 
     render() {
         return (
-            <ContentBox title="Overview">
-                Coba
-            </ContentBox>
+            <div>
+                <div className="row">
+                    <StatusBox text="coba" color="primary" icon="check" value="78%"/>
+                    <StatusBox text="coba" color="primary" icon="check" value="78%"/>
+                    <StatusBox text="coba" color="primary" icon="check" value="78%"/>
+                    <StatusBox text="coba" color="primary" icon="check" value="78%"/>
+                </div>
+                <ContentBox title="Overview">
+                    Coba
+                </ContentBox>
+            </div>
         );
     }
 }

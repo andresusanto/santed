@@ -9,7 +9,9 @@
   "author": "Brownie (Ahmad Zaky @azaky, Alif Raditya Rochman @alifradityar, Andre Susanto @andresusanto)",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "mongoose": "^4.11.3"
   }
 }

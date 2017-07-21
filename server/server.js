@@ -2,7 +2,13 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const Promise = require('bluebird');
 const config = require('./config');
+const CRUD = require('./controllers/crud');
+const TestSchema = require('./model/test');
+
+mongoose.Promise = Promise;
 
 const app = express();
 
@@ -33,9 +39,27 @@ app.use((error, req, res, next) => {
     res.status(500).json({ status: 'Internal Server Error', code: '500' });
 });
 
-const port = process.env.PORT || config.server.port;
-const server = app.listen(port, () => {
-    console.log(`Santed API started on ${port}`);
-});
 
-module.exports = server;
+async function init() {
+    try {
+        // Initialize mongoose
+        const mongooseOptions = {
+            useMongoClient: true,
+        }
+        const url = `mongodb://${encodeURIComponent(config.mongodb.user)}:${encodeURIComponent(config.mongodb.pass)}@${config.mongodb.url}`;
+        const db = await mongoose.createConnection(url, mongooseOptions);
+        console.log('Connected to mongodb!');
+
+        const TestModel = db.model('Test', TestSchema);
+        app.use('/test', CRUD(TestModel));
+
+        const port = process.env.PORT || config.server.port;
+        const server = app.listen(port, () => {
+            console.log(`Santed API started on ${port}`);
+        });
+    } catch (e) {
+        console.log('Error: ', e);
+    }
+};
+
+init();

@@ -30,8 +30,26 @@ class WorkforcePage extends Component {
             <ContentBox title="Workforce" headerAction={(
                 <Button title="Create" icon="plus" />
             )}>
-                <FilterBox />
-                <Table />
+                <FilterBox onSearch={(tes) => {
+                    console.log(tes);    
+                }}/>
+                <Table 
+                    header={[
+                        'Name',
+                        'PA',
+                        'Planned',
+                        'WS Rule',
+                        'Empl.',
+                        'Company Code',
+                        'Start Date',
+                        'End Date',
+                    ]}
+                    content={[
+                        ['Andre', '6032', '177.4', 'Day 645-1617 SMCW', 'Active', 'Sasol Mining', '7/1/15', '7/1/19'],
+                        ['Andre', '6032', '177.4', 'Day 645-1617 SMCW', 'Active', 'Sasol Mining', '7/1/15', '7/1/19'],
+                        ['Andre', '6032', '177.4', 'Day 645-1617 SMCW', 'Active', 'Sasol Mining', '7/1/15', '7/1/19'],
+                        ['Andre', '6032', '177.4', 'Day 645-1617 SMCW', 'Active', 'Sasol Mining', '7/1/15', '7/1/19'],
+                    ]}/>
             </ContentBox>
         );
     }

@@ -11,7 +11,13 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
+    "csvtojson": "^1.1.7",
     "express": "^4.15.2",
-    "mongoose": "^4.11.3"
+    "express-fileupload": "^0.1.4",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
+    "mongoose": "^4.11.3",
+    "stream-buffers": "^3.0.1"
   }
 }

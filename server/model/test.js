@@ -12,4 +12,7 @@ const TestSchema = mongoose.Schema({
     collection: 'tests',
 });
 
-module.exports = TestSchema;
+module.exports = {
+    schema: TestSchema,
+    
+}

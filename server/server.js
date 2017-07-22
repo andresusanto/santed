@@ -1,12 +1,16 @@
 'use strict';
 
+const _ = require('lodash');
 const express = require('express');
+const expressFileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Promise = require('bluebird');
 const config = require('./config');
 const CRUD = require('./controllers/crud');
+const CSV = require('./controllers/csv');
 const TestSchema = require('./model/test');
+const models = require('./model');
 
 mongoose.Promise = Promise;
 
@@ -28,6 +32,7 @@ const jsonErrorHandler = (error, req, res, next) => {
 app.use(bodyParser.json());
 app.use(jsonErrorHandler);
 app.use(expressLogger);
+app.use(expressFileUpload());
 
 app.get('/', (req, res) => {
     res.status(200).json({ status: 'Santed API' });
@@ -39,7 +44,6 @@ app.use((error, req, res, next) => {
     res.status(500).json({ status: 'Internal Server Error', code: '500' });
 });
 
-
 async function init() {
     try {
         // Initialize mongoose
@@ -50,8 +54,20 @@ async function init() {
         const db = await mongoose.createConnection(url, mongooseOptions);
         console.log('Connected to mongodb!');
 
-        const TestModel = db.model('Test', TestSchema);
-        app.use('/test', CRUD(TestModel));
+        _.each(models, (m, name) => {
+            const Model = db.model(name, m.schema);
+            app.use(`/${_.snakeCase(name)}`, CRUD(Model));
+            app.use(`/${_.snakeCase(name)}`, CSV(Model, m.csvColumnParser));
+        });
+
+        // const TestModel = db.model('Test', models.Test.schema);
+        // app.use('/test', CRUD(TestModel));
+
+        // const LeaveModel = db.model('Leave', models.Leave.schema);
+        // app.use('/leave', CRUD(LeaveModel, models.Leave.csvColumnParser));
+
+        // const LicenseModel = db.model('License', models.License.schema);
+        // app.use('/leave', CRUD(LeaveModel, models.Leave.csvColumnParser));
 
         const port = process.env.PORT || config.server.port;
         const server = app.listen(port, () => {

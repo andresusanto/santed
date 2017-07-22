@@ -1,0 +1,114 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons left>
+            <button ion-button (click)="goBack()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+		<ion-title>
+			Absences
+		</ion-title>
+
+		<ion-buttons end >
+			<button ion-button clear color="light">
+				<ion-icon name="notifications"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="absence" no-scroll>
+    <div class="absence-header">
+        <button ion-button block type="submit">Create Request</button>
+    </div>
+	<ion-list>
+        <ion-list-header style="color: #d35400;">
+            Waiting for approval
+        </ion-list-header>
+        <ion-item style="background-color: #d35400; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="../assets/imgs/hourglass.png"/>
+                <div class="item-content">
+                    <div class="absence-title">
+                    Holiday request
+                    </div>
+                    <div class="absence-time">
+                        3-7 December 2018
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+        <ion-list-header style="color:#16a085">
+            Accepted
+        </ion-list-header>
+        <ion-item style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="../assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="absence-title">
+                    Childborn leave
+                    </div>
+                    <div class="absence-time">
+                        1-2 January 2017
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="../assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="absence-title">
+                    Wedding leave
+                    </div>
+                    <div class="absence-time">
+                        5-21 May 2016
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="../assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="absence-title">
+                    Leave
+                    </div>
+                    <div class="absence-time">
+                        1-6 January 2017
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+        <ion-list-header style="color:#c0392b">
+            Rejected
+        </ion-list-header>
+
+        <ion-item style="background-color: #c0392b; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="../assets/imgs/wrong-sign.png"/>
+                <div class="item-content">
+                    <div class="absence-title">
+                    Lazy
+                    </div>
+                    <div class="absence-time">
+                        21-22 January 2017
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item style="background-color: #c0392b; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="../assets/imgs/wrong-sign.png"/>
+                <div class="item-content">
+                    <div class="absence-title">
+                    Lazy
+                    </div>
+                    <div class="absence-time">
+                        21-22 January 2016
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

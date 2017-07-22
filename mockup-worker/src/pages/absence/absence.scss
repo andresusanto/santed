@@ -1,4 +1,4 @@
-page-safety {
+page-absence {
     .list-header-md {
         margin-bottom: 0px;
     }
@@ -26,26 +26,16 @@ page-safety {
         margin-left: 13px;
     }
 
-    .item-row {
-        width: 300px;
-        margin-top: -10px;
-        margin-bottom: -10px;
-        .button-clear-md {
-            color: #fff;
-        }
-    }
-
-    .safety-title {
+    .absence-title {
         font-size: 2rem;
         font-weight: 200;
     }
 
-    .safety-time {
+    .absence-time {
         font-size: 1.4rem;
         font-weight: 500;
     }
-
-    .safety { 
+    .absence { 
         ion-list {
 
             ion-item {
@@ -56,5 +46,9 @@ page-safety {
                 }
             }
         }
+    }
+    .absence-header {
+        padding: 20px 100px;
+        background-color: #ddd;
     }
 }

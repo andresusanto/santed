@@ -4,6 +4,9 @@ import {LoginPage} from '../pages/login/login';
 import {ProfilePage} from '../pages/profile/profile';
 import {ClockPage} from '../pages/clock/clock';
 import {ProjectPage} from '../pages/project/project';
+import {AbsencePage} from '../pages/absence/absence';
+import {LicensePage} from '../pages/license/license';
+import {RedTicketPage} from '../pages/redticket/redticket';
 import {PLogPage} from '../pages/plog/plog';
 import {SafetyPage} from '../pages/safety/safety';
 import {HomePage} from '../pages/home/home';
@@ -40,6 +43,9 @@ export class BazaarApp {
     { title: 'Clock', component: ClockPage},
     { title: 'Project', component: ProjectPage},
     { title: 'Project Logs', component: PLogPage},
+    { title: 'Absences', component: AbsencePage},
+    { title: 'Licenses', component: LicensePage},
+    { title: 'Red tickets', component: RedTicketPage},
     { title: 'Safety', component: SafetyPage},
     { title: 'Home', component: HomePage},
     { title: 'Product Details', component: ProductdPage},

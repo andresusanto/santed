@@ -1,9 +1,4 @@
 page-project {
-    ion-list-header {
-        .label-md {
-            color: #f1582c;
-        }
-    }
     .list-header-md {
         margin-bottom: 0px;
     }
@@ -17,5 +12,39 @@ page-project {
         position: absolute;
         right: 15px;
         font-size: 1.4rem;
+    }
+
+    .item-image {
+        width: 30px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .item-content {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 13px;
+    }
+
+    .project-title {
+        font-size: 2rem;
+        font-weight: 200;
+    }
+
+    .project-time {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+    .project { 
+        ion-list {
+
+            ion-item {
+                border:none;
+
+                .item-inner {
+                border:none !important;
+                }
+            }
+        }
     }
 }

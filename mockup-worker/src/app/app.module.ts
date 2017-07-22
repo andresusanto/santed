@@ -8,6 +8,9 @@ import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 import { ClockPage } from '../pages/clock/clock';
 import { ProjectPage } from '../pages/project/project';
+import { AbsencePage } from '../pages/absence/absence';
+import { LicensePage } from '../pages/license/license';
+import { RedTicketPage } from '../pages/redticket/redticket';
 import { PLogPage } from '../pages/plog/plog';
 import { SafetyPage } from '../pages/safety/safety';
 import { HomePage } from '../pages/home/home';
@@ -16,15 +19,15 @@ import { ProductdPage } from '../pages/productd/productd';
 import { CartPage } from '../pages/cart/cart';
 import { CheckoutPage } from '../pages/checkout/checkout';
 
-
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 
-const pages = [ LoginPage, ProfilePage, ClockPage, ProjectPage, PLogPage, SafetyPage, HomePage, ProductlPage, ProductdPage,
+const pages = [ LoginPage, ProfilePage, ClockPage, ProjectPage, AbsencePage, LicensePage, RedTicketPage, PLogPage, SafetyPage, HomePage, ProductlPage, ProductdPage,
     CartPage, CheckoutPage];
 
-const nativeProviders = [ SplashScreen, StatusBar ];
+const nativeProviders = [ SplashScreen, StatusBar, BluetoothSerial ];
 
 
 @NgModule({

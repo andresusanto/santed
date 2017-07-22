@@ -18,6 +18,37 @@ page-profile {
       margin:0 0 10px;
 
       ion-item {
+        border:none;
+
+        .item-inner {
+          border:none !important;
+        }
+
+        .item-container {
+          color:#fff;
+          padding-left: 30px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+
+        .item-image {
+          width: 60px;
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        .item-head-text {
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 50px;
+          font-size: 25px;
+          font-weight: 700;
+          .item-head-subt {
+            font-size: 12px;
+            font-weight: 500;
+          }
+        }
+        
         ion-avatar {
           width:66px;
           height:65px;

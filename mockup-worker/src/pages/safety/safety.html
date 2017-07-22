@@ -19,167 +19,146 @@
 
 <ion-content class="safety" no-scroll>
     <ion-list>
-        <ion-list-header>
-            Active Project Sites
+        <ion-list-header style="color:#c0392b">
+            Warning! Anomaly detected!
         </ion-list-header>
-        <ion-item (click)="goToPLog()">
-            Thebulisha Mine
-            <ion-row style="color: #8e8e8e;" no-padding>
-                Everything normal
-            </ion-row>
-            <ion-row no-padding>
-                <ion-col>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='thermometer'></ion-icon>
-                    38 °C
-                    </button>
-                </ion-col>
-                <ion-col text-center>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='speedometer'></ion-icon>
-                    766 mmHg
-                    </button>
-                </ion-col>
-                <ion-col text-right>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='checkmark'></ion-icon>
-                    SAFE
-                    </button>
-                </ion-col>
-                </ion-row>
-        </ion-item>
-        <ion-item (click)="goToPLog()">
-            Simunye
-            <ion-row style="color: #8e8e8e;" no-padding>
-                Everything normal
-            </ion-row>
-            <ion-row no-padding>
-                <ion-col>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='thermometer'></ion-icon>
-                    37 °C
-                    </button>
-                </ion-col>
-                <ion-col text-center>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='speedometer'></ion-icon>
-                    765 mmHg
-                    </button>
-                </ion-col>
-                <ion-col text-right>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='checkmark'></ion-icon>
-                    SAFE
-                    </button>
-                </ion-col>
-                </ion-row>
-        </ion-item>
-        <ion-item (click)="goToPLog()">
-            Brandspruit
-            <ion-row style="color: #8e8e8e;" no-padding>
-                Everything normal
-            </ion-row>
-            <ion-row no-padding>
-                <ion-col>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='thermometer'></ion-icon>
-                    38 °C
-                    </button>
-                </ion-col>
-                <ion-col text-center>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='speedometer'></ion-icon>
-                    767 mmHg
-                    </button>
-                </ion-col>
-                <ion-col text-right>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='checkmark'></ion-icon>
-                    SAFE
-                    </button>
-                </ion-col>
-                </ion-row>
+        <ion-item style="background-color: #c0392b; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="../assets/imgs/warning.png"/>
+                <div class="item-content">
+                    <div class="safety-title">
+                    Azkym Mine
+                    </div>
+                    <div class="safety-time">
+                        High temperature detected
+                    </div>
+                    <ion-row no-padding class="item-row">
+                        <ion-col>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='thermometer'></ion-icon>
+                            77 °C
+                            </button>
+                        </ion-col>
+                        <ion-col text-center>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='speedometer'></ion-icon>
+                            766 mmHg
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
         </ion-item>
         <ion-list-header>
-            All Sites
+            No anomaly detected.
         </ion-list-header>
-        <ion-item (click)="goToPLog()">
-            Middelbult
-            <ion-row style="color: #8e8e8e;" no-padding>
-                Increasing pressure detected. Proceed with caution.
-            </ion-row>
-            <ion-row no-padding>
-                <ion-col>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='thermometer'></ion-icon>
-                    39 °C
-                    </button>
-                </ion-col>
-                <ion-col text-center>
-                    <button ion-button clear small style="color:#b50707" icon-start>
-                    <ion-icon name='speedometer'></ion-icon>
-                    900 mmHg
-                    </button>
-                </ion-col>
-                <ion-col text-right>
-                    <button ion-button clear small style="color:#b50707" icon-start>
-                    <ion-icon name='warning'></ion-icon>
-                    Warning
-                    </button>
-                </ion-col>
-                </ion-row>
+        <ion-item style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="../assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="safety-title">
+                    Ansus Mine
+                    </div>
+                    <div class="safety-time">
+                        Everything is normal
+                    </div>
+                    <ion-row no-padding class="item-row">
+                        <ion-col>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='thermometer'></ion-icon>
+                            38 °C
+                            </button>
+                        </ion-col>
+                        <ion-col text-center>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='speedometer'></ion-icon>
+                            766 mmHg
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
         </ion-item>
-        <ion-item (click)="goToPLog()">
-            Synferfontein
-            <ion-row style="color: #8e8e8e;" no-padding>
-                Everything normal
-            </ion-row>
-            <ion-row no-padding>
-                <ion-col>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='thermometer'></ion-icon>
-                    37 °C
-                    </button>
-                </ion-col>
-                <ion-col text-center>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='speedometer'></ion-icon>
-                    780 mmHg
-                    </button>
-                </ion-col>
-                <ion-col text-right>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='checkmark'></ion-icon>
-                    SAFE
-                    </button>
-                </ion-col>
-                </ion-row>
+        <ion-item style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="../assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="safety-title">
+                    Afil Mine
+                    </div>
+                    <div class="safety-time">
+                        Everything is normal
+                    </div>
+                    <ion-row no-padding class="item-row">
+                        <ion-col>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='thermometer'></ion-icon>
+                            38 °C
+                            </button>
+                        </ion-col>
+                        <ion-col text-center>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='speedometer'></ion-icon>
+                            766 mmHg
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
         </ion-item>
-        <ion-item (click)="goToPLog()">
-            Bosjesspruit
-            <ion-row style="color: #8e8e8e;" no-padding>
-                Everything normal
-            </ion-row>
-            <ion-row no-padding>
-                <ion-col>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='thermometer'></ion-icon>
-                    36 °C
-                    </button>
-                </ion-col>
-                <ion-col text-center>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='speedometer'></ion-icon>
-                    740 mmHg
-                    </button>
-                </ion-col>
-                <ion-col text-right>
-                    <button ion-button clear small style="color:#28c318" icon-start>
-                    <ion-icon name='checkmark'></ion-icon>
-                    SAFE
-                    </button>
-                </ion-col>
-                </ion-row>
+        <ion-item style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="../assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="safety-title">
+                    Slyahe Mine
+                    </div>
+                    <div class="safety-time">
+                        Everything is normal
+                    </div>
+                    <ion-row no-padding class="item-row">
+                        <ion-col>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='thermometer'></ion-icon>
+                            38 °C
+                            </button>
+                        </ion-col>
+                        <ion-col text-center>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='speedometer'></ion-icon>
+                            766 mmHg
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="../assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="safety-title">
+                    Josh Mine
+                    </div>
+                    <div class="safety-time">
+                        Everything is normal
+                    </div>
+                    <ion-row no-padding class="item-row">
+                        <ion-col>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='thermometer'></ion-icon>
+                            38 °C
+                            </button>
+                        </ion-col>
+                        <ion-col text-center>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='speedometer'></ion-icon>
+                            766 mmHg
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
         </ion-item>
     </ion-list>
 </ion-content>

@@ -17,14 +17,42 @@ page-plog {
         position: absolute;
         right: 15px;
         font-size: 1.4rem;
+        color: #fff;
     }
     .notes-highlight {
         color: #f1582c;
     }
     .check-in {
-        color: #0d9213;
+        background-color: #27ae60;
+        color:#fff
     }
     .check-out {
-        color: #d41a1a;
+        background-color: #e67e22;
+        color:#fff
+    }
+
+    .item-image {
+        width: 30px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .item-content {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 13px;
+    }
+
+    .plog { 
+        ion-list {
+
+            ion-item {
+                border:none;
+
+                .item-inner {
+                border:none !important;
+                }
+            }
+        }
     }
 }

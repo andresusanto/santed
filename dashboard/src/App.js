@@ -9,6 +9,7 @@ import { closeHeaderMenu } from './actions'
 import Header from './components/header';
 import Footer from './components/footer';
 import Menu from './components/menu';
+import GraphQLClient from './services/graphql';
 
 
 const history = createBrowserHistory()
@@ -18,6 +19,16 @@ class App extends Component {
         dispatch: PropTypes.func.isRequired,
         documentTitle: PropTypes.string.isRequired,
     };
+
+    static childContextTypes = {
+        gql: PropTypes.object,
+    };
+
+    getChildContext() {
+        return {
+            gql: new GraphQLClient(process.env.REACT_APP_GQL_ENDPOINT, this.props.dispatch),
+        };
+    }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.documentTitle !== this.props.documentTitle) {

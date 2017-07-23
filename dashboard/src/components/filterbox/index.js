@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import DatePicker from 'react-datepicker';
+import Datetime from 'react-datetime';
 import moment from 'moment';
 
-import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import 'react-datetime/css/react-datetime.css';
 import './FilterBox.css';
 
 class FilterBox extends Component {
@@ -42,9 +42,10 @@ class FilterBox extends Component {
                 <div className="col-xl-3 col-lg-4 col-md-6 mb-1">
                         <div className="form-group">
                             <label>Start date</label>
-                                <DatePicker
-                                    className="form-control"
-                                    selected={this.state.startDate}
+                                <Datetime
+                                    timeFormat={false}
+                                    closeOnSelect={true}
+                                    value={this.state.startDate}
                                     onChange={(date) => this.handleChange('startDate', date)}
                                 />
                         </div>
@@ -52,9 +53,10 @@ class FilterBox extends Component {
                 <div className="col-xl-3 col-lg-4 col-md-6 mb-1">
                         <div className="form-group">
                             <label>End date</label>
-                            <DatePicker
-                                className="form-control"
-                                selected={this.state.endDate}
+                            <Datetime
+                                timeFormat={false}
+                                closeOnSelect={true}
+                                value={this.state.endDate}
                                 onChange={(date) => this.handleChange('endDate', date)}
                             />
                         </div>

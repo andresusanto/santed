@@ -15,6 +15,7 @@ import {
 class WorkforcePage extends Component {
     static contextTypes = {
         gql: PropTypes.object,
+        router: PropTypes.object.isRequired,
     };
     static propTypes = {
         dispatch: PropTypes.func.isRequired,
@@ -28,7 +29,7 @@ class WorkforcePage extends Component {
     render() {
         return (
             <ContentBox title="Workforce" headerAction={(
-                <Button title="Create" icon="plus" />
+                <Button title="Create" icon="plus" onClick={() => this.context.router.history.push('/create')} />
             )}>
                 <FilterBox onSearch={(tes) => {
                     console.log(tes);    

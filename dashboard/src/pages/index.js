@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router';
 import OverviewPage from './overview';
 import WorkforcePage from './workforce';
+import CreatePage from './create';
 
 export const pages = [
     {
@@ -21,6 +22,15 @@ export const pages = [
         title: 'Workforce',
         menuConfig: {
             icon: 'monitor',
+        },
+    },
+    {
+        key: 'create',
+        path: '/create',
+        component: CreatePage,
+        title: 'Create New Project',
+        menuConfig: {
+            hide: true,
         },
     },
 ];

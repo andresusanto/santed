@@ -114,7 +114,7 @@ async function init() {
         app.get('/project/findByMiner', (req, res) => {
             const query = {};
             if (req.query.persNo) {
-                query['assignments.miner.persNo'] = req.query.persNo;
+                query['assignments.miner.persNo'] = '' + req.query.persNo;
             }
             if (req.query.firstName) {
                 query['assignments.miner.firstName'] = req.query.firstName;

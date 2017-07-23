@@ -18,6 +18,7 @@
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
     "mongoose": "^4.11.3",
+    "priorityqueuejs": "^1.0.0",
     "stream-buffers": "^3.0.1"
   }
 }

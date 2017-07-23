@@ -112,7 +112,7 @@ const calcSchedule = (requirements, miners) => {
 };
 
 const calcHeuristic = (miner, license) => {
-    return 0;
+    return miner.totalAbsHours * 1.3 * (miner.totalClockingHours || 0) * 1;
 };
 
 const mapLicense = (position) => {

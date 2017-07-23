@@ -10,7 +10,8 @@ const Position = mongoose.Schema({
 const Assignment = mongoose.Schema({
     miner: Miner,
     position: String,
-})
+    status: String, // Pending, Accepted, Rejected
+});
 
 const Project = mongoose.Schema({
     id: String,
@@ -22,6 +23,7 @@ const Project = mongoose.Schema({
     endDate: Date,
     requirements: [Position],
     assignments: [Assignment],
+    rejected: [String], // list of rejecting miners
     cost: Number,
 }, {
     timestamps: {

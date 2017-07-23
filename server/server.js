@@ -12,7 +12,7 @@ const CRUD = require('./controllers/crud');
 const CSV = require('./controllers/csv');
 const TestSchema = require('./model/test');
 const models = require('./model');
-const { scheduleProject } = require('./scheduling/project');
+const { scheduleProject, rescheduleProject } = require('./scheduling/project');
 
 mongoose.Promise = Promise;
 
@@ -73,8 +73,24 @@ async function init() {
         });
 
         const Project = models.Project.model;
-        app.use('/project/create', (req, res) => {
+        app.post('/project/create', (req, res) => {
             const spec = req.body;
+            spec.name = spec.name || spec.projectName;
+            spec.type = spec.type || spec.projectType;
+            spec.description = spec.description || spec.projectDescription;
+            spec.site = spec.site || spec.projectLocation;
+            spec.requirements = _.map(spec.criticalPositions, (num, pos) => {
+                return {
+                    license: pos,
+                    num: num,
+                };
+            });
+            if (spec.additionalCrewMax) {
+                spec.requirements.push({
+                    license: false,
+                    num: spec.additionalCrewMax,
+                });
+            }
             const project = new Project(spec);
             project.save()
                 .then((saved) => {
@@ -82,9 +98,10 @@ async function init() {
                         .then((result) => {
                             saved.requirements = result.requirements;
                             saved.assignments = result.assignments;
+                            saved.cost = result.cost;
                             return saved.save()
                                 .then((updated) => {
-                                    return res.status(200).json(saved);
+                                    return res.status(200).json(updated);
                                 });
                         });
                 })
@@ -94,7 +111,7 @@ async function init() {
                 });
         });
 
-        app.use('/project/findByMiner', (req, res) => {
+        app.get('/project/findByMiner', (req, res) => {
             const query = {};
             if (req.query.persNo) {
                 query['assignments.miner.persNo'] = req.query.persNo;
@@ -111,6 +128,65 @@ async function init() {
                 })
                 .catch((err) => {
                     logger.error('Error at /project/findByMiner:', err);
+                    res.status(500).json({ error: err.message });
+                });
+        });
+        
+        app.post('/project/accept', (req, res) => {
+            const projectId = req.body._id || req.body.id;
+            const persNo = req.body.persNo;
+            Project.findOne({
+                _id: projectId,
+                'assignments.miner.persNo': persNo,
+            }).then((project) => {
+                    if (!project) {
+                        return res.status(400).json({ error: 'project not found '});
+                    }
+
+                    _.some(project.assignments, (assignment) => {
+                        if (assignment.miner.persNo === persNo) {
+                            assignment.status = 'Accepted';
+                        }
+                    });
+
+                    project.save()
+                        .then((saved) => {
+                            return res.status(200).json(saved);
+                        });
+                })
+                .catch((err) => {
+                    logger.error('Error at /project/accept:', err);
+                    res.status(500).json({ error: err.message });
+                });
+        });
+
+        app.post('/project/reject', (req, res) => {
+            const projectId = req.body._id || req.body.id;
+            const persNo = req.body.persNo;
+            Project.findOne({
+                _id: projectId,
+                'assignments.miner.persNo': persNo,
+            }).then((project) => {
+                    if (!project) {
+                        return res.status(400).json({ error: 'project not found '});
+                    }
+
+                    if (project.rejected.indexOf(persNo) === -1) {
+                        project.rejected.push(persNo);
+                    }
+                    return rescheduleProject(project, models)
+                        .then((result) => {
+                            project.requirements = result.requirements;
+                            project.assignments = result.assignments;
+                            project.cost = result.cost;
+                            return project.save()
+                                .then((updated) => {
+                                    return res.status(200).json(updated);
+                                });
+                        });
+                })
+                .catch((err) => {
+                    logger.error('Error at /project/accept:', err);
                     res.status(500).json({ error: err.message });
                 });
         });

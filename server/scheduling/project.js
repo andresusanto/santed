@@ -2,20 +2,26 @@ const _ = require('lodash');
 const logger = require('../logger');
 const MinCostMaxFlow = require('./min_cost_max_flow');
 
+const LHD = 'Mining Load Haul Dumper';
+const ROOFBOLTER = 'Mining Roofbolter';
+const CM = 'Mining Continuous Miner';
+const SHUTTLECAR = 'Mining Shuttle Car';
+const ADDITIONAL = 'Additional';
+
 const defaultRequirements = [{
     license: false, // anything will do
     num: 3,
 }, {
-    license: 'Mining Load Haul Dumper Tier 6 / License',
+    license: LHD,
     num: 1,
 }, {
-    license: 'Mining Roofbolter Tier 6 / License',
+    license: ROOFBOLTER,
     num: 1,
 }, {
-    license: 'Mining Continuous Miner Tier 6 / License',
+    license: CM,
     num: 1,
 }, {
-    license: 'Mining Shuttle Car Tier 6 / License',
+    license: SHUTTLECAR,
     num: 3,
 }];
 
@@ -31,9 +37,9 @@ const calcSchedule = (requirements, miners) => {
     let i;
     let supervisorIdx = {}, supervisor = [];
     _.some(miners, (miner, i) => {
-        if (!supervisorIdx[miner.supervisor]) {
-            supervisorIdx[miner.supervisor] = supervisor.length;
-            supervisor.push(miner.supervisor);
+        if (!supervisorIdx[miner.superior]) {
+            supervisorIdx[miner.superior] = supervisor.length;
+            supervisor.push(miner.superior);
         }
     });
 
@@ -59,7 +65,7 @@ const calcSchedule = (requirements, miners) => {
     });
     // supervisors -> miners
     _.some(miners, (miner, i) => {
-        const isup = supervisorIdx[miner.supervisor] + offset1;
+        const isup = supervisorIdx[miner.superior] + offset1;
         mcmf.addEdge(isup, i + offset2, 1, 0);
     });
     // miners -> positions
@@ -88,7 +94,8 @@ const calcSchedule = (requirements, miners) => {
                 if (0 <= to && to < reqs.length) {
                     assignments.push({
                         miner: miner,
-                        position: reqs[to] || 'Additional',
+                        position: reqs[to],
+                        status: 'Pending',
                     });
                 }
             }
@@ -109,22 +116,29 @@ const calcHeuristic = (miner, license) => {
 };
 
 const mapLicense = (position) => {
-    if (position.indexOf('LHD') !== -1) {
-        return 'Mining Load Haul Dumper Tier 6 / License';
+    if (!position) {
+        return ADDITIONAL;
     }
-    if (position.indexOf('Roofbolt') !== -1) {
-        return 'Mining Roofbolter Tier 6 / License';
+    if (position.indexOf('LHD') !== -1 || position.indexOf('Load Haul Dumper') !== -1) {
+        return LHD;
     }
-    if (position.indexOf('CM') !== -1) {
-        return 'Mining Continuous Miner Tier 6 / License';
+    if (position.indexOf('Roof') !== -1) {
+        return ROOFBOLTER;
     }
-    if (position.indexOf('Shuttlecar') !== -1) {
-        return 'Mining Shuttle Car Tier 6 / License';
+    if (position.indexOf('CM') !== -1 || position.indexOf('Continuous Miner') !== -1) {
+        return CM;
     }
-    return false;
+    if (position.indexOf('Shuttle') !== -1) {
+        return SHUTTLECAR;
+    }
+    return ADDITIONAL;
 };
 
 const scheduleProject = (spec, models) => {
+    spec.requirements = _.map(spec.requirements, (req) => ({
+        license: mapLicense(req.license),
+        num: Number(req.num),
+    }));
     const Miner = models.Miner.model;
     return Miner.find().limit(100).exec()
         .then((miners) => {
@@ -132,6 +146,17 @@ const scheduleProject = (spec, models) => {
         });
 };
 
+const rescheduleProject = (project, models) => {
+    const Miner = models.Miner.model;
+    return Miner.find().limit(100).exec()
+        .then((miners) => {
+            return calcSchedule(project.requirements, _.filter(miners, (miner) => {
+                return (project.rejected.indexOf(miner.persNo) === -1);
+            }));
+        });
+};
+
 module.exports = {
     scheduleProject,
+    rescheduleProject,
 };

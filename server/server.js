@@ -142,7 +142,7 @@ async function init() {
         
         app.post('/project/accept', (req, res) => {
             const projectId = req.body._id || req.body.id;
-            const persNo = req.body.persNo;
+            const persNo = '' + req.body.persNo;
             Project.findOne({
                 _id: projectId,
                 'assignments.miner.persNo': persNo,

@@ -5,6 +5,7 @@ module.exports = {
     MiningClock: require('./mining_clock'),
     WorkscheduleRuleCheck: require('./workschedule_rule_check'),
     RedTicket: require('./red_ticket'),
-    // Project: require('./project'),
+    Project: require('./project'),
+    Miner: require('./miner'),
     Site: require('./site'),
 };

@@ -12,6 +12,7 @@ const CRUD = require('./controllers/crud');
 const CSV = require('./controllers/csv');
 const TestSchema = require('./model/test');
 const models = require('./model');
+const { scheduleProject } = require('./scheduling/project');
 
 mongoose.Promise = Promise;
 
@@ -69,6 +70,33 @@ async function init() {
             m.model = Model;
 
             return false;
+        });
+
+        const Project = models.Project.model;
+        app.use('/project/create', (req, res) => {
+            const spec = req.body;
+            const project = new Project(spec);
+            project.save()
+                .then((saved) => {
+                    return scheduleProject(spec, models)
+                        .then((result) => {
+                            // TODO: save assignment
+                            saved.requirements = result.requirements;
+                            saved.assignments = result.assignments;
+                            return saved.save()
+                                .then((updated) => {
+                                    return res.status(200).json(saved);
+                                    // return res.status(200).json({
+                                    //     project: saved,
+                                    //     // assignment: result,
+                                    // });
+                                });
+                        });
+                })
+                .catch((err) => {
+                    logger.error('Error while scheduling:', err);
+                    res.status(500).json({ error: err.message });
+                });
         });
 
         // const License = models.License.model;

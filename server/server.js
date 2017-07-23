@@ -124,7 +124,15 @@ async function init() {
             }
             Project.find(query)
                 .then((projects) => {
-                    res.status(200).json(projects);
+                    const flaggedProjects = _.map(projects, (project) => {
+                        const assignment = _.find(project.assignments, (a) => {
+                            return (a.miner.persNo === req.query.persNo
+                                || a.miner.firstName === req.query.firstName
+                                || a.miner.lastName === req.query.lastName);
+                        });
+                        return _.defaults(project.toJSON(), { status: assignment.status });
+                    })
+                    res.status(200).json(flaggedProjects);
                 })
                 .catch((err) => {
                     logger.error('Error at /project/findByMiner:', err);
@@ -174,6 +182,7 @@ async function init() {
                     if (project.rejected.indexOf(persNo) === -1) {
                         project.rejected.push(persNo);
                     }
+                    // 
                     return rescheduleProject(project, models)
                         .then((result) => {
                             project.requirements = result.requirements;

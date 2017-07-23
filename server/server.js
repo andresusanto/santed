@@ -200,52 +200,6 @@ async function init() {
                 });
         });
 
-        // const License = models.License.model;
-        // const MiningClock = models.MiningClock.model;
-
-        // let promises = [];
-        // promises.push(License.find().limit(1000).exec());
-        // promises.push(MiningClock.find().limit(1000).exec());
-        // Promise.all(promises)
-        //     .then((results) => {
-        //         const licenses = results[0];
-        //         const miningClocks = results[1];
-        //         const firstnames = {}, lastnames = {};
-        //         _.some(licenses, (l) => {
-        //             if (!l.firstName) {
-        //                 console.log(l);
-        //                 return false
-        //             }
-        //             firstnames[l.firstName.toLowerCase()] = true;
-        //             lastnames[l.lastName.toLowerCase()] = true;
-        //             return false;
-        //         });
-        //         console.log('FirstName:', _.some(miningClocks, (m) => {
-        //             if (firstnames[m.firstName.toLowerCase()]) {
-        //                 console.log(m);
-        //                 return true;
-        //             }
-        //             return false;
-        //         }));
-        //         console.log('LastName:', _.some(miningClocks, (m) => {
-        //             return lastnames[m.lastName.toLowerCase()];
-        //         }));
-        //     })
-        //     .catch((err) => {
-        //         logger.error(err);
-        //     });
-
-        // const TestModel = db.model('Test', models.Test.schema);
-        // app.use('/test', CRUD(TestModel));
-
-        // const LeaveModel = db.model('Leave', models.Leave.schema);
-        // app.use('/leave', CRUD(LeaveModel, models.Leave.csvColumnParser));
-
-        // const LicenseModel = db.model('License', models.License.schema);
-        // app.use('/leave', CRUD(LeaveModel, models.Leave.csvColumnParser));
-
-        
-
         const port = process.env.PORT || config.server.port;
         const server = app.listen(port, () => {
             logger.info(`Santed API started on ${port}`);

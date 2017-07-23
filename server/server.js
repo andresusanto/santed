@@ -35,7 +35,7 @@ app.use(expressLogger);
 app.use(expressFileUpload());
 
 app.get('/', (req, res) => {
-    res.status(200).json({ status: 'Santed API v02:26' });
+    res.status(200).json({ status: 'Santed API v11:07' });
 });
 
 // Unhandled 500

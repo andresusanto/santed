@@ -126,7 +126,7 @@ async function init() {
                 .then((projects) => {
                     const flaggedProjects = _.map(projects, (project) => {
                         const assignment = _.find(project.assignments, (a) => {
-                            return (a.miner.persNo === req.query.persNo
+                            return (a.miner.persNo === '' + req.query.persNo
                                 || a.miner.firstName === req.query.firstName
                                 || a.miner.lastName === req.query.lastName);
                         });

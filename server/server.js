@@ -94,6 +94,27 @@ async function init() {
                 });
         });
 
+        app.use('/project/findByMiner', (req, res) => {
+            const query = {};
+            if (req.query.persNo) {
+                query['assignments.miner.persNo'] = req.query.persNo;
+            }
+            if (req.query.firstName) {
+                query['assignments.miner.firstName'] = req.query.firstName;
+            }
+            if (req.query.lastName) {
+                query['assignments.miner.lastName'] = req.query.lastName;
+            }
+            Project.find(query)
+                .then((projects) => {
+                    res.status(200).json(projects);
+                })
+                .catch((err) => {
+                    logger.error('Error at /project/findByMiner:', err);
+                    res.status(500).json({ error: err.message });
+                });
+        });
+
         // const License = models.License.model;
         // const MiningClock = models.MiningClock.model;
 

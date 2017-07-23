@@ -80,16 +80,22 @@ async function init() {
                 .then((saved) => {
                     return scheduleProject(spec, models)
                         .then((result) => {
+<<<<<<< HEAD
                             // TODO: save assignment
+=======
+>>>>>>> Add create project and scheduling algorithm
                             saved.requirements = result.requirements;
                             saved.assignments = result.assignments;
                             return saved.save()
                                 .then((updated) => {
                                     return res.status(200).json(saved);
+<<<<<<< HEAD
                                     // return res.status(200).json({
                                     //     project: saved,
                                     //     // assignment: result,
                                     // });
+=======
+>>>>>>> Add create project and scheduling algorithm
                                 });
                         });
                 })

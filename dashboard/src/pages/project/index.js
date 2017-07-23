@@ -10,11 +10,11 @@ import Table from '../../components/table';
 import Loading from '../../components/loading';
 import {
     updateDocumentTitle,
-    getWorkforce,
+    getProject,
 } from '../../actions';
 
 
-class WorkforcePage extends Component {
+class ProjectPage extends Component {
     static contextTypes = {
         gql: PropTypes.object,
         router: PropTypes.object.isRequired,
@@ -26,13 +26,15 @@ class WorkforcePage extends Component {
     };
 
     componentWillMount() {
-        this.props.dispatch(updateDocumentTitle('Workforce'));
-        this.context.gql.dispatch(getWorkforce());
+        this.props.dispatch(updateDocumentTitle('Project'));
+        this.context.gql.dispatch(getProject());
     }
 
     render() {
         return (
-            <ContentBox title="Workforce">
+            <ContentBox title="Project" headerAction={(
+                <Button title="Create" icon="plus" onClick={() => this.context.router.history.push('/create')} />
+            )}>
                 <FilterBox onSearch={(tes) => {
                     console.log(tes);    
                 }}/>
@@ -41,24 +43,22 @@ class WorkforcePage extends Component {
                 ) : (
                     <Table 
                         header={[
-                            'Person No',
-                            'PA',
-                            'Planned',
-                            'WS Rule',
-                            'Empl.',
-                            'Company Code',
-                            'Start Date',
-                            'End Date',
+                            'Name',
+                            'Type',
+                            'Start',
+                            'End',
+                            'Requirements',
+                            'Assignments',
+                            'Rejected',
                         ]}
                         content={this.props.data.map(data => ([
-                            data.persNo,
-                            data.pa,
-                            data.planned,
-                            data.wsRule,
-                            data.employmentStatus,
-                            data.companyCode,
+                            data.name,
+                            data.type,
                             moment(data.startDate).format('YYYY-MM-DD'),
                             moment(data.endDate).format('YYYY-MM-DD'),
+                            data.requirements.map(req => `${req.num}x ${req.license}`).join('\n'),
+                            data.assignments.map(assignment => `${assignment.miner.lastName}, ${assignment.miner.firstName} - ${assignment.miner.position} - (${assignment.position}:${assignment.status})`).join('\n'),
+                            data.rejected.join('\n'),
                         ]))}/>
                 )}
             </ContentBox>
@@ -68,9 +68,9 @@ class WorkforcePage extends Component {
 
 const mapStateToProps = state => {
     return {
-        phase: state.workforce.phase,
-        data: state.workforce.data,
+        phase: state.project.phase,
+        data: state.project.data,
     }
 }
 
-export default connect(mapStateToProps)(WorkforcePage);
+export default connect(mapStateToProps)(ProjectPage);

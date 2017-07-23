@@ -23,7 +23,13 @@ class Table extends Component {
                     {this.props.content.map((contents, i) => (
                         <tr key={`tr-content-${i}`}>
                             {contents.map((content, j) => (
-                                <td key={`td-content-${content}-${i}-${j}`}>{content}</td>
+                                <td key={`td-content-${content}-${i}-${j}`}>{content.split('\n').map((contentPerLine, k) => (
+                                        <span key={`td-content-${content}-${i}-${j}-${k}`}>
+                                            { k > 0 ? (<hr/>) : null }
+                                            {contentPerLine}
+                                            <br/>
+                                        </span>
+                                    ))}</td>
                             ))}
                         </tr>
                     ))}

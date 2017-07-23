@@ -17,7 +17,7 @@
     "redux": "^3.7.2"
   },
   "scripts": {
-    "start": "REACT_APP_GQL_ENDPOINT=http://graphql.nodaljs.com/graph react-scripts start",
+    "start": "REACT_APP_GQL_ENDPOINT=http://localhost:8081/graphql react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

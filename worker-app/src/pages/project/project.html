@@ -1,0 +1,131 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons left>
+            <button ion-button (click)="goBack()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+		<ion-title>
+			Projects
+		</ion-title>
+
+		<ion-buttons end >
+			<button ion-button clear color="light">
+				<ion-icon name="notifications"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="project" no-scroll>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+	<ion-list>
+        <ion-list-header style="color:#d35400">
+            Need your confirmation!
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && projectClocking.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let p of projectClocking" style="background-color: #d35400; color: #fff;" (click)="goToPLog(p._id)">
+            <div>
+                <img class="item-image" src="assets/imgs/play-button.png"/>
+                <div class="item-content">
+                    <div class="project-title">
+                    {{p.name}}
+                    </div>
+                    <div class="project-time">
+                        {{ p.startDate | date: 'EEE, dd MMM yyyy' }} - {{ p.endDate | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                </div>
+            </div>
+            <div class="item-action">
+                <button class="approve" ion-button type="submit" (click)="approve(p._id)">Accept</button>
+                <button class="reject" ion-button type="submit" (click)="reject(p._id)">Reject</button>
+            </div>
+        </ion-item>
+        <ion-list-header style="color:#e67e22">
+            Active project
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && projectActive.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let p of projectActive" style="background-color: #e67e22; color: #fff;" (click)="goToPLog(p._id)">
+            <div>
+                <img class="item-image" src="assets/imgs/spinner-circle.png"/>
+                <div class="item-content">
+                    <div class="project-title">
+                    {{p.name}}
+                    </div>
+                    <div class="project-time">
+                        {{ p.startDate | date: 'EEE, dd MMM yyyy' }} - {{ p.endDate | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+        <ion-list-header style="color:#34495e">
+            Future project
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && projectFuture.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let p of projectFuture" style="background-color: #34495e; color: #fff;" (click)="goToPLog(p._id)">
+            <div>
+                <img class="item-image" src="assets/imgs/next.png"/>
+                <div class="item-content">
+                    <div class="project-title">
+                    {{p.name}}
+                    </div>
+                    <div class="project-time">
+                        {{ p.startDate | date: 'EEE, dd MMM yyyy' }} - {{ p.endDate | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+        
+        <ion-list-header style="color:#7f8c8d">
+            Past project
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && projectPast.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let p of projectPast" style="background-color: #7f8c8d; color: #fff;" (click)="goToPLog(p._id)">
+            <div>
+                <img class="item-image" src="assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="project-title">
+                        {{p.name}}
+                    </div>
+                    <div class="project-time">
+                        {{ p.startDate | date: 'EEE, dd MMM yyyy' }} - {{ p.endDate | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

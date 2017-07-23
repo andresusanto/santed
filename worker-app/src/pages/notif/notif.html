@@ -1,0 +1,73 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons left>
+            <button ion-button (click)="goBack()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+		<ion-title>
+			Notifications
+		</ion-title>
+
+		<ion-buttons end >
+			<button ion-button clear color="light">
+				<ion-icon name="notifications"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="notif" no-scroll>
+	<ion-list>
+        <ion-list-header style="color: #d35400;">
+            Unread
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && notifUnread.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let n of notifUnread" style="background-color: #d35400; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="assets/imgs/warning.png"/>
+                <div class="item-content">
+                    <div class="notif-title">
+                    {{ n.type }}
+                    </div>
+                    <div class="notif-time">
+                        {{ n.created | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+        <ion-list-header style="color:#16a085">
+            Read
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && notifRead.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let n of notifRead" style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
+            <div>
+                <img class="item-image" src="assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="notif-title">
+                    {{ n.type }}
+                    </div>
+                    <div class="notif-time">
+                        {{ n.created | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

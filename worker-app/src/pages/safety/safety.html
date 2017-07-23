@@ -1,0 +1,104 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons left>
+            <button ion-button (click)="goBack()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+		<ion-title>
+			Safety
+		</ion-title>
+
+		<ion-buttons end >
+			<button ion-button clear color="light">
+				<ion-icon name="notifications"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="safety" no-scroll>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-list>
+        <ion-list-header style="color:#c0392b">
+            Warning! Anomaly detected!
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && siteDanger.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let s of siteDanger" style="background-color: #c0392b; color: #fff;">
+            <div>
+                <img class="item-image" src="assets/imgs/warning.png"/>
+                <div class="item-content">
+                    <div class="safety-title">
+                    {{s.name}}
+                    </div>
+                    <div class="safety-time">
+                        {{s.description}}
+                    </div>
+                    <ion-row no-padding class="item-row">
+                        <ion-col>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='thermometer'></ion-icon>
+                            {{s.temperature}} °C
+                            </button>
+                        </ion-col>
+                        <ion-col text-center>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='speedometer'></ion-icon>
+                            {{s.pressure}} mmHg
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
+        </ion-item>
+        <ion-list-header>
+            No anomaly detected.
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && siteNormal.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let s of siteNormal" style="background-color: #16a085; color: #fff;" >
+            <div>
+                <img class="item-image" src="assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="safety-title">
+                    {{s.name}}
+                    </div>
+                    <div class="safety-time">
+                        {{s.description}}
+                    </div>
+                    <ion-row no-padding class="item-row">
+                        <ion-col>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='thermometer'></ion-icon>
+                            {{s.temperature}} °C
+                            </button>
+                        </ion-col>
+                        <ion-col text-center>
+                            <button ion-button clear small icon-start>
+                            <ion-icon name='speedometer'></ion-icon>
+                            {{s.pressure}} mmHg
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

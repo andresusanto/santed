@@ -1,4 +1,4 @@
-# Santed: Sasol United Systme
+# Santed: Sasol United System
 
 Santed (Sasol United) is an integrated scheduling and resource and management system. It addresses the following problems:
 

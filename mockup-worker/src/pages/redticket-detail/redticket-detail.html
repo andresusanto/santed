@@ -1,0 +1,58 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons left>
+            <button ion-button (click)="goBack()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+		<ion-title>
+			Red ticket detail
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="redticket-detail" no-scroll>
+	<ion-list>
+        <ion-list-header>
+            Summary
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+        </div>
+        <div *ngIf="!isLoading && !isError">
+            <ion-item>
+                Outcome
+                <ion-note class="notes-highlight" item-end>
+                    {{redticket.outcome}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Medical date
+                <ion-note class="notes-highlight" item-end>
+                    {{redticket.medicalDate | date: 'EEE, dd MMM yyyy'}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Expiry date
+                <ion-note class="notes-highlight" item-end>
+                    {{redticket.expiryDate | date: 'EEE, dd MMM yyyy'}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Return date
+                <ion-note class="notes-highlight" item-end>
+                    {{redticket.toReturnDate}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Red ticket required?
+                <ion-note class="notes-highlight" item-end>
+                    {{redticket.required}}
+                </ion-note>
+            </ion-item>
+        </div>
+    </ion-list>
+</ion-content>

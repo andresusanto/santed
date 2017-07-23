@@ -361,3 +361,9 @@ input[type="submit"] {
   border-bottom: 1px solid $list-ios-border-color;
   border-top: 1px solid $list-ios-border-color;
 }
+
+.error-toast {
+    .toast-wrapper {
+      background-color: #e74c3c;
+    }
+}

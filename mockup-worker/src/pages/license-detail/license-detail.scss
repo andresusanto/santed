@@ -1,0 +1,41 @@
+page-license-detail {
+    ion-list-header {
+        .label-md {
+            color: #f1582c;
+        }
+    }
+    .list-header-md {
+        margin-bottom: 0px;
+    }
+    .item-block {
+        border-bottom: 0px;
+        .item-inner {
+            border-bottom: 0px !important;
+        }
+    }
+    .note-md {
+        position: absolute;
+        right: 15px;
+        font-size: 1.4rem;
+        color: #fff;
+    }
+    .notes-highlight {
+        color: #f1582c;
+    }
+
+    .license-detail { 
+        ion-list {
+
+            ion-item {
+                border:none;
+
+                .item-inner {
+                border:none !important;
+                }
+            }
+        }
+    }
+    .loading-error-info {
+        text-align: center;
+    }
+}

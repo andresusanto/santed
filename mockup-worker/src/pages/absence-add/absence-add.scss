@@ -1,0 +1,18 @@
+page-absence-add {
+    .absence-add { 
+        ion-list {
+            ion-item {
+                border-top:none;
+                border-bottom:1px;
+
+                .item-inner {
+                    border:none !important;
+                }
+            }
+        }
+    }
+
+    .absence-submit {
+        padding: 20px 100px;
+    }
+}

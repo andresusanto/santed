@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {CartPage} from '../../pages/cart/cart';
 import {ClockPage} from '../../pages/clock/clock';
 import {ProjectPage} from '../../pages/project/project';
+import {NotificationPage} from '../../pages/notif/notif';
 import {AbsencePage} from '../../pages/absence/absence';
 import {LicensePage} from '../../pages/license/license';
 import {RedTicketPage} from '../../pages/redticket/redticket';
@@ -65,6 +66,10 @@ export class ProfilePage {
 
   goToAbsence() {
     this.nav.push(AbsencePage);
+  }
+
+  goToNotif() {
+    this.nav.push(NotificationPage);
   }
 
   goToLicense() {

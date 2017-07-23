@@ -5,8 +5,13 @@ import {ProfilePage} from '../pages/profile/profile';
 import {ClockPage} from '../pages/clock/clock';
 import {ProjectPage} from '../pages/project/project';
 import {AbsencePage} from '../pages/absence/absence';
+import {AbsenceDetailPage} from '../pages/absence-detail/absence-detail';
+import {NotificationPage} from '../pages/notif/notif';
+import {AbsenceAddPage} from '../pages/absence-add/absence-add';
 import {LicensePage} from '../pages/license/license';
+import {LicenseDetailPage} from '../pages/license-detail/license-detail';
 import {RedTicketPage} from '../pages/redticket/redticket';
+import {RedTicketDetailPage} from '../pages/redticket-detail/redticket-detail';
 import {PLogPage} from '../pages/plog/plog';
 import {SafetyPage} from '../pages/safety/safety';
 import {HomePage} from '../pages/home/home';
@@ -38,20 +43,25 @@ export class BazaarApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageObj[] = [
-    { title: 'Login', component: LoginPage},
-    { title: 'Profile', component: ProfilePage},
-    { title: 'Clock', component: ClockPage},
-    { title: 'Project', component: ProjectPage},
-    { title: 'Project Logs', component: PLogPage},
-    { title: 'Absences', component: AbsencePage},
-    { title: 'Licenses', component: LicensePage},
-    { title: 'Red tickets', component: RedTicketPage},
-    { title: 'Safety', component: SafetyPage},
-    { title: 'Home', component: HomePage},
-    { title: 'Product Details', component: ProductdPage},
-    { title: 'Product List', component: ProductlPage},
-    { title: 'Cart', component: CartPage},
-    { title: 'Checkout', component: CheckoutPage},
+    { title: 'Login', component: LoginPage },
+    { title: 'Profile', component: ProfilePage },
+    { title: 'Clock', component: ClockPage },
+    { title: 'Project', component: ProjectPage },
+    { title: 'Project Logs', component: PLogPage },
+    { title: 'Absences', component: AbsencePage },
+    { title: 'Absence Detail', component: AbsenceDetailPage },
+    { title: 'Notifications', component: NotificationPage },
+    { title: 'Add Absence', component: AbsenceAddPage },
+    { title: 'Licenses', component: LicensePage },
+    { title: 'License Detail', component: LicenseDetailPage },
+    { title: 'Red tickets', component: RedTicketPage },
+    { title: 'Red ticket Detail', component: RedTicketDetailPage },
+    { title: 'Safety', component: SafetyPage },
+    { title: 'Home', component: HomePage },
+    { title: 'Product Details', component: ProductdPage },
+    { title: 'Product List', component: ProductlPage },
+    { title: 'Cart', component: CartPage },
+    { title: 'Checkout', component: CheckoutPage },
   ];
   rootPage: any = LoginPage;
   constructor(

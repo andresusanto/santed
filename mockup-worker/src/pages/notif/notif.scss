@@ -1,4 +1,4 @@
-page-license {
+page-notif {
     .list-header-md {
         margin-bottom: 0px;
     }
@@ -26,16 +26,16 @@ page-license {
         margin-left: 13px;
     }
 
-    .license-title {
+    .notif-title {
         font-size: 2rem;
         font-weight: 200;
     }
 
-    .license-time {
+    .notif-time {
         font-size: 1.4rem;
         font-weight: 500;
     }
-    .license { 
+    .notif { 
         ion-list {
 
             ion-item {
@@ -47,7 +47,7 @@ page-license {
             }
         }
     }
-    .license-header {
+    .notif-header {
         padding: 20px 100px;
         background-color: #ddd;
     }

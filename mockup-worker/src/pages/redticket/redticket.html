@@ -18,97 +18,132 @@
 </ion-header>
 
 <ion-content class="redticket" no-scroll>
-    <div class="redticket-header">
-        <button ion-button block type="submit">Create Request</button>
-    </div>
 	<ion-list>
         <ion-list-header style="color: #d35400;">
             Waiting for approval
         </ion-list-header>
-        <ion-item style="background-color: #d35400; color: #fff;" (click)="goToPLog()">
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && redTicketRequested.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let r of redTicketRequested" style="background-color: #d35400; color: #fff;" (click)="goToRedTicketDetail(r._id)">
             <div>
                 <img class="item-image" src="../assets/imgs/hourglass.png"/>
                 <div class="item-content">
                     <div class="redticket-title">
-                    Holiday request
+                    Medical: {{ r.medicalDate | date: 'EEE, dd MMM yyyy' }}
                     </div>
                     <div class="redticket-time">
-                        3-7 December 2018
+                        Expiration: {{ r.expiryDate | date: 'EEE, dd MMM yyyy' }}
                     </div>
                 </div>
             </div>
         </ion-item>
         <ion-list-header style="color:#16a085">
-            Accepted
+            Reccomended
         </ion-list-header>
-        <ion-item style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && redTicketR.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let r of redTicketR" style="background-color: #16a085; color: #fff;" (click)="goToRedTicketDetail(r._id)">
             <div>
                 <img class="item-image" src="../assets/imgs/success.png"/>
                 <div class="item-content">
                     <div class="redticket-title">
-                    Childborn leave
+                    Medical: {{ r.medicalDate | date: 'EEE, dd MMM yyyy' }}
                     </div>
                     <div class="redticket-time">
-                        1-2 January 2017
+                        Expiration: {{ r.expiryDate | date: 'EEE, dd MMM yyyy' }}
                     </div>
                 </div>
             </div>
         </ion-item>
-        <ion-item style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
-            <div>
-                <img class="item-image" src="../assets/imgs/success.png"/>
-                <div class="item-content">
-                    <div class="redticket-title">
-                    Wedding leave
-                    </div>
-                    <div class="redticket-time">
-                        5-21 May 2016
-                    </div>
-                </div>
-            </div>
-        </ion-item>
-        <ion-item style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
-            <div>
-                <img class="item-image" src="../assets/imgs/success.png"/>
-                <div class="item-content">
-                    <div class="redticket-title">
-                    Leave
-                    </div>
-                    <div class="redticket-time">
-                        1-6 January 2017
-                    </div>
-                </div>
-            </div>
-        </ion-item>
-        <ion-list-header style="color:#c0392b">
-            Rejected
+        <ion-list-header style="color:#16a085">
+            To come back
         </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && redTicketTCB.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let r of redTicketTCB" style="background-color: #16a085; color: #fff;" (click)="goToRedTicketDetail(r._id)">
+            <div>
+                <img class="item-image" src="../assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="redticket-title">
+                    Medical: {{ r.medicalDate | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                    <div class="redticket-time">
+                        Expiration: {{ r.expiryDate | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+        <ion-list-header style="color:#16a085">
+            Temporary surface duty
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && redTicketTSD.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let r of redTicketTSD" style="background-color: #16a085; color: #fff;" (click)="goToRedTicketDetail(r._id)">
+            <div>
+                <img class="item-image" src="../assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="redticket-title">
+                    Medical: {{ r.medicalDate | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                    <div class="redticket-time">
+                        Expiration: {{ r.expiryDate | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+        <ion-list-header style="color:#16a085">
+            Permanent surface duty
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+            <div *ngIf="!isLoading && !isError && redTicketPSD.length == 0">
+                No data found.
+            </div>
+        </div>
+        <ion-item *ngFor="let r of redTicketPSD" style="background-color: #16a085; color: #fff;" (click)="goToRedTicketDetail(r._id)">
+            <div>
+                <img class="item-image" src="../assets/imgs/success.png"/>
+                <div class="item-content">
+                    <div class="redticket-title">
+                    Medical: {{ r.medicalDate | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                    <div class="redticket-time">
+                        Expiration: {{ r.expiryDate | date: 'EEE, dd MMM yyyy' }}
+                    </div>
+                </div>
+            </div>
+        </ion-item>
 
-        <ion-item style="background-color: #c0392b; color: #fff;" (click)="goToPLog()">
-            <div>
-                <img class="item-image" src="../assets/imgs/wrong-sign.png"/>
-                <div class="item-content">
-                    <div class="redticket-title">
-                    Lazy
-                    </div>
-                    <div class="redticket-time">
-                        21-22 January 2017
-                    </div>
-                </div>
-            </div>
-        </ion-item>
-        <ion-item style="background-color: #c0392b; color: #fff;" (click)="goToPLog()">
-            <div>
-                <img class="item-image" src="../assets/imgs/wrong-sign.png"/>
-                <div class="item-content">
-                    <div class="redticket-title">
-                    Lazy
-                    </div>
-                    <div class="redticket-time">
-                        21-22 January 2016
-                    </div>
-                </div>
-            </div>
-        </ion-item>
     </ion-list>
 </ion-content>

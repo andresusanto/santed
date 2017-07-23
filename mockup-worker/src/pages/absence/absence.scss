@@ -51,4 +51,10 @@ page-absence {
         padding: 20px 100px;
         background-color: #ddd;
     }
+    ion-list-header {
+        border: 0px !important;
+    }
+    .loading-error-info {
+        text-align: center;
+    }
 }

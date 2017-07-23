@@ -1,0 +1,70 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons left>
+            <button ion-button (click)="goBack()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+		<ion-title>
+			Absence detail
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="absence-detail" no-scroll>
+	<ion-list>
+        <ion-list-header>
+            Summary
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+        </div>
+        <div *ngIf="!isLoading && !isError">
+            <ion-item>
+                Type
+                <ion-note class="notes-highlight" item-end>
+                    {{absence.type}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Start date
+                <ion-note class="notes-highlight" item-end>
+                    {{absence.startDate | date: 'EEE, dd MMM yyyy'}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                End date
+                <ion-note class="notes-highlight" item-end>
+                    {{absence.endDate | date: 'EEE, dd MMM yyyy'}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Superior/Supervisor
+                <ion-note class="notes-highlight" item-end>
+                    {{absence.superior}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Changed by
+                <ion-note class="notes-highlight" item-end>
+                    {{absence.changedBy}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Total Days
+                <ion-note class="notes-highlight" item-end>
+                    {{absence.totalAbsenceDays}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Total Hours
+                <ion-note class="notes-highlight" item-end>
+                    {{absence.totalAbsHours}}
+                </ion-note>
+            </ion-item>
+        </div>
+    </ion-list>
+</ion-content>

@@ -6,7 +6,7 @@
             </button>
         </ion-buttons>
 		<ion-title>
-			Licenses
+			Notifications
 		</ion-title>
 
 		<ion-buttons end >
@@ -17,55 +17,54 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content class="license" no-scroll>
+<ion-content class="notif" no-scroll>
 	<ion-list>
-        <ion-list-header style="color:#1abc9c">
-            Current
+        <ion-list-header style="color: #d35400;">
+            Unread
         </ion-list-header>
         <div class="loading-error-info">
             <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
             <div *ngIf="!isLoading && isError">
                 Connection problem occured.
             </div>
-            <div *ngIf="!isLoading && !isError && licenseCurrent.length == 0">
+            <div *ngIf="!isLoading && !isError && notifUnread.length == 0">
                 No data found.
             </div>
         </div>
-        <ion-item *ngFor="let l of licenseCurrent" style="background-color: #1abc9c; color: #fff;" (click)="goToLicenseDetail(l._id)">
+        <ion-item *ngFor="let n of notifUnread" style="background-color: #d35400; color: #fff;" (click)="goToPLog()">
             <div>
-                <img class="item-image" src="../assets/imgs/success.png"/>
+                <img class="item-image" src="../assets/imgs/warning.png"/>
                 <div class="item-content">
-                    <div class="license-title">
-                    {{ l.entityTitle }}
+                    <div class="notif-title">
+                    {{ n.type }}
                     </div>
-                    <div class="license-time">
-                        until {{ l.completionDate | date: 'EEE, dd MMM yyyy' }}
+                    <div class="notif-time">
+                        {{ n.created | date: 'EEE, dd MMM yyyy' }}
                     </div>
                 </div>
             </div>
         </ion-item>
-        
         <ion-list-header style="color:#16a085">
-            Completed
+            Read
         </ion-list-header>
         <div class="loading-error-info">
             <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
             <div *ngIf="!isLoading && isError">
                 Connection problem occured.
             </div>
-            <div *ngIf="!isLoading && !isError && licenseCompleted.length == 0">
+            <div *ngIf="!isLoading && !isError && notifRead.length == 0">
                 No data found.
             </div>
         </div>
-        <ion-item *ngFor="let l of licenseCompleted" style="background-color: #16a085; color: #fff;" (click)="goToLicenseDetail(l._id)">
+        <ion-item *ngFor="let n of notifRead" style="background-color: #16a085; color: #fff;" (click)="goToPLog()">
             <div>
                 <img class="item-image" src="../assets/imgs/success.png"/>
                 <div class="item-content">
-                    <div class="license-title">
-                    {{ l.entityTitle }}
+                    <div class="notif-title">
+                    {{ n.type }}
                     </div>
-                    <div class="license-time">
-                        until {{ l.completionDate | date: 'EEE, dd MMM yyyy' }}
+                    <div class="notif-time">
+                        {{ n.created | date: 'EEE, dd MMM yyyy' }}
                     </div>
                 </div>
             </div>

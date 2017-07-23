@@ -1,0 +1,70 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons left>
+            <button ion-button (click)="goBack()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+		<ion-title>
+			License detail
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="license-detail" no-scroll>
+	<ion-list>
+        <ion-list-header>
+            Summary
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+        </div>
+        <div *ngIf="!isLoading && !isError">
+            <ion-item>
+                Item
+                <ion-note class="notes-highlight" item-end>
+                    {{license.entityTitle}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Completion
+                <ion-note class="notes-highlight" item-end>
+                    {{license.completionStatus}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Tuition
+                <ion-note class="notes-highlight" item-end>
+                    {{license.tuition}} {{license.currencyId}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Created
+                <ion-note class="notes-highlight" item-end>
+                    {{license.created}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Last update
+                <ion-note class="notes-highlight" item-end>
+                    {{license.lastUpdateTime}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Last update by
+                <ion-note class="notes-highlight" item-end>
+                    {{license.lastUpdateUser}}
+                </ion-note>
+            </ion-item>
+            <ion-item>
+                Active?
+                <ion-note class="notes-highlight" item-end>
+                    {{license.active}}
+                </ion-note>
+            </ion-item>
+        </div>
+    </ion-list>
+</ion-content>

@@ -10,6 +10,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Menu from './components/menu';
 import GraphQLClient from './services/graphql';
+import RestClient from './services/rest';
 
 
 const history = createBrowserHistory()
@@ -22,11 +23,13 @@ class App extends Component {
 
     static childContextTypes = {
         gql: PropTypes.object,
+        rest: PropTypes.object,
     };
 
     getChildContext() {
         return {
             gql: new GraphQLClient(process.env.REACT_APP_GQL_ENDPOINT, this.props.dispatch),
+            rest: new RestClient(process.env.REACT_APP_API_ENDPOINT, this.props.dispatch),
         };
     }
 

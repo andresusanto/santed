@@ -175,3 +175,11 @@ export const getProject = () => {
         query,
     }
 }
+
+export const createProject = (payload) => {
+    return {
+        type: 'CREATE_PROJECT',
+        resource: '/project/create',
+        payload,
+    }
+};

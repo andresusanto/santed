@@ -7,6 +7,7 @@ import redTicket from './redticket';
 import license from './license';
 import clocking from './clocking';
 import project from './project';
+import create from './create';
 
 const reducers = combineReducers({
     app,
@@ -17,6 +18,7 @@ const reducers = combineReducers({
     license,
     clocking,
     project,
+    create,
 });
 
 export default reducers;

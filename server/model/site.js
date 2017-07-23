@@ -13,7 +13,7 @@ const columnParser = {
     'temperature': 'number',
     'pressure': 'number',
     'danger': (item) => {
-        return item !== 0;
+        return item !== '0';
     },
 };
 

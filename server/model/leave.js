@@ -26,6 +26,7 @@ const Leave = mongoose.Schema({
     totalAbsHours: Number,
     totalAbsenceDays: Number,
     totalPayrollDays: Number,
+    status: String,
 }, {
     timestamps: {
         createdAt: 'created',

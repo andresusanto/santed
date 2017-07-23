@@ -3,7 +3,7 @@ const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const schema = require('./data/Schema');
+const schema = require('./data/schema');
 
 const PORT = process.env.PORT || 8081;
 const graphQLServer = express();

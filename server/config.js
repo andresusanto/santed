@@ -7,4 +7,8 @@ module.exports = {
         user: 'root',
         pass: 'jalanjalankeoldtrafford',
     },
+    papertrail: {
+        host: 'logs5.papertrailapp.com',
+        port: '42780',
+    },
 };

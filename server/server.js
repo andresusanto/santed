@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Promise = require('bluebird');
 const config = require('./config');
+const logger = require('./logger');
 const CRUD = require('./controllers/crud');
 const CSV = require('./controllers/csv');
 const TestSchema = require('./model/test');
@@ -17,7 +18,7 @@ mongoose.Promise = Promise;
 const app = express();
 
 const expressLogger = (req, res, next) => {
-    console.log(`[REQUEST LOGGER] ${req.method} ${req.url} with request header ${JSON.stringify(req.headers)} and body ${JSON.stringify(req.body)}`);
+    logger.info(`[REQUEST LOGGER] ${req.method} ${req.url} with request header ${JSON.stringify(req.headers)} and body ${JSON.stringify(req.body)}`);
     next();
 };
 
@@ -47,7 +48,7 @@ app.get('/', (req, res) => {
 
 // Unhandled 500
 app.use((error, req, res, next) => {
-    console.log('Uncaught error: ', error);
+    logger.error('Uncaught error: ', error);
     res.status(500).json({ status: 'Internal Server Error', code: '500' });
 });
 
@@ -59,7 +60,7 @@ async function init() {
         }
         const url = `mongodb://${encodeURIComponent(config.mongodb.user)}:${encodeURIComponent(config.mongodb.pass)}@${config.mongodb.url}`;
         const db = await mongoose.createConnection(url, mongooseOptions);
-        console.log('Connected to mongodb!');
+        logger.info('Connected to mongodb!');
 
         _.each(models, (m, name) => {
             const Model = db.model(name, m.schema);
@@ -78,10 +79,10 @@ async function init() {
 
         const port = process.env.PORT || config.server.port;
         const server = app.listen(port, () => {
-            console.log(`Santed API started on ${port}`);
+            logger.info(`Santed API started on ${port}`);
         });
     } catch (e) {
-        console.log('Error: ', e);
+        logger.error('Error while initializing: ', e);
     }
 };
 

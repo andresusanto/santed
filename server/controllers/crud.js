@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const logger = require('../logger');
 
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -8,6 +9,7 @@ const CRUD = (Model) => {
 
     const errorCallback = (res) => {
         return (err) => {
+            logger.error('CRUD Error: ', err);
             return res.status(500).json({ error: err.message });
         };
     };

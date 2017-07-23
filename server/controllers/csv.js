@@ -10,6 +10,7 @@ const CSVController = (Model, ColumnParser) => {
 
     const errorCallback = (res) => {
         return (err) => {
+            logger.error('CSV Error: ', err);
             return res.status(500).json({ error: err.message });
         };
     };

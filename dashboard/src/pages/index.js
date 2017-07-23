@@ -10,35 +10,35 @@ import ClockingPage from './clocking';
 import ProjectPage from './project';
 
 export const pages = [
-    // {
-    //     key: 'overview',
-    //     exact: true,
-    //     path: '/',
-    //     component: OverviewPage,
-    //     title: 'Overview',
-    //     menuConfig: {
-    //         icon: 'home',
-    //     },
-    // },
     {
-        key: 'project',
+        key: 'overview',
         exact: true,
         path: '/',
+        component: OverviewPage,
+        title: 'Overview',
+        menuConfig: {
+            icon: 'home',
+        },
+    },
+    {
+        key: 'project',
+        //exact: true,
+        path: '/project',
         component: ProjectPage,
         title: 'Projects',
         menuConfig: {
             icon: 'grid',
         },
     },
-    {
-        key: 'workforce',
-        path: '/workforce',
-        component: WorkforcePage,
-        title: 'Workforce',
-        menuConfig: {
-            icon: 'monitor',
-        },
-    },
+    // {
+    //     key: 'workforce',
+    //     path: '/workforce',
+    //     component: WorkforcePage,
+    //     title: 'Workforce',
+    //     menuConfig: {
+    //         icon: 'monitor',
+    //     },
+    // },
     {
         key: 'create',
         path: '/create',

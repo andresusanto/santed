@@ -25,7 +25,7 @@ class OverviewPage extends Component {
                     <StatusBox text="Earth Quake" color="warning" icon="globe" value="~ 1 mo ago"/>
                 </div>
                 <ContentBox title="Overview">
-                    Coba
+                    TBD
                 </ContentBox>
             </div>
         );

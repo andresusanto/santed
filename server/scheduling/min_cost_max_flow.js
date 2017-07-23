@@ -111,17 +111,21 @@ class MinCostMaxFlow {
 }
 
 // test
-let capacity = [[0, 3, 2], [0, 0, 2], [0, 0, 0]];
-let nodes = 3;
-let mcmf = new MinCostMaxFlow(nodes);
-let i, j;
-for (i = 0; i < nodes; ++i) {
-    for (j = 0; j < nodes; ++j) {
-        if (capacity[i][j] !== 0) {
-            mcmf.addEdge(i, j, capacity[i][j], 1);
+if (process.env.DEBUG) {
+    let capacity = [[0, 3, 2], [0, 0, 2], [0, 0, 0]];
+    let nodes = 3;
+    let mcmf = new MinCostMaxFlow(nodes);
+    let i, j;
+    for (i = 0; i < nodes; ++i) {
+        for (j = 0; j < nodes; ++j) {
+            if (capacity[i][j] !== 0) {
+                mcmf.addEdge(i, j, capacity[i][j], 1);
+            }
         }
     }
+    let s = 0, t = 2;
+    let res = mcmf.calc(s, t, Infinity);
+    console.log(res);
 }
-let s = 0, t = 2;
-let res = mcmf.calc(s, t, Infinity);
-console.log(res);
+
+module.exports = MinCostMaxFlow;

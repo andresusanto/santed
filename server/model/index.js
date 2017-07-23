@@ -6,4 +6,5 @@ module.exports = {
     WorkscheduleRuleCheck: require('./workschedule_rule_check'),
     RedTicket: require('./red_ticket'),
     // Project: require('./project'),
+    Site: require('./site'),
 };

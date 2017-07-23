@@ -62,11 +62,17 @@ async function init() {
         const db = await mongoose.createConnection(url, mongooseOptions);
         logger.info('Connected to mongodb!');
 
-        _.each(models, (m, name) => {
+        _.some(models, (m, name) => {
             const Model = db.model(name, m.schema);
             app.use(`/${_.snakeCase(name)}`, CRUD(Model));
             app.use(`/${_.snakeCase(name)}`, CSV(Model, m.csvColumnParser));
+            m.model = Model;
+
+            return false;
         });
+
+        const License = models.License.model;
+        const MiningClock = models.MiningClock.model;
 
         // const TestModel = db.model('Test', models.Test.schema);
         // app.use('/test', CRUD(TestModel));
@@ -76,6 +82,8 @@ async function init() {
 
         // const LicenseModel = db.model('License', models.License.schema);
         // app.use('/leave', CRUD(LeaveModel, models.Leave.csvColumnParser));
+
+        
 
         const port = process.env.PORT || config.server.port;
         const server = app.listen(port, () => {

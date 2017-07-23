@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import { updateDocumentTitle } from '../../actions';
+import { updateDocumentTitle, createProject } from '../../actions';
 import ContentBox from '../../components/contentbox';
 
 import OverviewSection from './overview';
@@ -12,6 +12,10 @@ import ReviewSection from './review';
 import './Create.css';
 
 class CreatePage extends Component {
+    static contextTypes = {
+        rest: PropTypes.object,
+        router: PropTypes.object.isRequired,
+    };
     static propTypes = {
         dispatch: PropTypes.func.isRequired,
     };
@@ -59,8 +63,18 @@ class CreatePage extends Component {
         });
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (this.props.phase === 'start' && nextProps.phase === 'success') {
+            alert('Create Project Success!');
+            this.context.router.history.push('/');
+        } else if (this.props.phase === 'start' && nextProps.phase === 'failed') {
+            alert('Create Project Failed!');
+            this.context.router.history.push('/');
+        }
+    }
+
     onSubmit() {
-        console.log(JSON.stringify(this.state.inputs));
+        this.context.rest.dispatch(createProject(this.state.inputs));
     }
 
     render() {
@@ -92,4 +106,10 @@ class CreatePage extends Component {
     }
 }
 
-export default connect()(CreatePage);
+const mapStateToProps = state => {
+    return {
+        phase: state.create.phase,
+    }
+}
+
+export default connect(mapStateToProps)(CreatePage);

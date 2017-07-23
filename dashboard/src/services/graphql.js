@@ -16,7 +16,9 @@ class GraphQLClient {
         });
 
         return axios
-            .post(this.endpoint, query)
+            .post(this.endpoint, {
+                query
+            })
             .then(payload => {
                 this.dispatcher({
                     type: `${actionType}_SUCCESS`,

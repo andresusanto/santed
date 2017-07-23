@@ -60,7 +60,7 @@ class CreatePage extends Component {
     }
 
     onSubmit() {
-        console.log(this.state);
+        console.log(JSON.stringify(this.state.inputs));
     }
 
     render() {

@@ -10,11 +10,11 @@ import Table from '../../components/table';
 import Loading from '../../components/loading';
 import {
     updateDocumentTitle,
-    getWorkforce,
+    getRedTicket,
 } from '../../actions';
 
 
-class WorkforcePage extends Component {
+class RedTicketPage extends Component {
     static contextTypes = {
         gql: PropTypes.object,
         router: PropTypes.object.isRequired,
@@ -26,13 +26,13 @@ class WorkforcePage extends Component {
     };
 
     componentWillMount() {
-        this.props.dispatch(updateDocumentTitle('Workforce'));
-        this.context.gql.dispatch(getWorkforce());
+        this.props.dispatch(updateDocumentTitle('Red Ticket'));
+        this.context.gql.dispatch(getRedTicket());
     }
 
     render() {
         return (
-            <ContentBox title="Workforce">
+            <ContentBox title="Red Ticket">
                 <FilterBox onSearch={(tes) => {
                     console.log(tes);    
                 }}/>
@@ -41,24 +41,22 @@ class WorkforcePage extends Component {
                 ) : (
                     <Table 
                         header={[
-                            'Person No',
-                            'PA',
-                            'Planned',
-                            'WS Rule',
-                            'Empl.',
-                            'Company Code',
-                            'Start Date',
-                            'End Date',
+                            'Company',
+                            'Name',
+                            'Position',
+                            'Medical Date',
+                            'Outcome',
+                            'Red Ticket',
+                            'Expiry Date',
                         ]}
                         content={this.props.data.map(data => ([
-                            data.persNo,
-                            data.pa,
-                            data.planned,
-                            data.wsRule,
-                            data.employmentStatus,
-                            data.companyCode,
-                            moment(data.startDate).format('YYYY-MM-DD'),
-                            moment(data.endDate).format('YYYY-MM-DD'),
+                            data.companyNo,
+                            data.name.split(',').join(', ').split('(').join(' ('),
+                            data.position,
+                            moment(data.medicalDate).format('YYYY-MM-DD'),
+                            data.outcome,
+                            data.required ? 'Y' : 'N',
+                            moment(data.expiryDate).format('YYYY-MM-DD'),
                         ]))}/>
                 )}
             </ContentBox>
@@ -68,9 +66,9 @@ class WorkforcePage extends Component {
 
 const mapStateToProps = state => {
     return {
-        phase: state.workforce.phase,
-        data: state.workforce.data,
+        phase: state.redTicket.phase,
+        data: state.redTicket.data,
     }
 }
 
-export default connect(mapStateToProps)(WorkforcePage);
+export default connect(mapStateToProps)(RedTicketPage);

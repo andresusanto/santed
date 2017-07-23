@@ -5,22 +5,22 @@ const initialState = {
     data: [],
 };
 
-const workforce = (state = initialState, action) => {
+const leave = (state = initialState, action) => {
     switch (action.type) {
-        case 'GET_WORKFORCE_START':
+        case 'GET_LEAVE_START':
             return update(state, {
                 phase: { $set: 'start' },
             });
-        case 'GET_WORKFORCE_SUCCESS':
+        case 'GET_LEAVE_SUCCESS':
             return update(state, {
                 phase: { $set: 'success' },
-                data: { $set: action.payload.data.data.workschedule },
+                data: { $set: action.payload.data.data.leave },
             });
-        case 'CREATE_WORKFORCE_FAILED':
+        case 'GET_LEAVE_FAILED':
             return state;
         default:
             return state;
     }
 };
 
-export default workforce;
+export default leave;

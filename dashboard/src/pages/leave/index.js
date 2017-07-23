@@ -10,11 +10,11 @@ import Table from '../../components/table';
 import Loading from '../../components/loading';
 import {
     updateDocumentTitle,
-    getWorkforce,
+    getLeave,
 } from '../../actions';
 
 
-class WorkforcePage extends Component {
+class LeavePage extends Component {
     static contextTypes = {
         gql: PropTypes.object,
         router: PropTypes.object.isRequired,
@@ -26,13 +26,13 @@ class WorkforcePage extends Component {
     };
 
     componentWillMount() {
-        this.props.dispatch(updateDocumentTitle('Workforce'));
-        this.context.gql.dispatch(getWorkforce());
+        this.props.dispatch(updateDocumentTitle('Leave'));
+        this.context.gql.dispatch(getLeave());
     }
 
     render() {
         return (
-            <ContentBox title="Workforce">
+            <ContentBox title="Leave">
                 <FilterBox onSearch={(tes) => {
                     console.log(tes);    
                 }}/>
@@ -42,21 +42,19 @@ class WorkforcePage extends Component {
                     <Table 
                         header={[
                             'Person No',
-                            'PA',
-                            'Planned',
-                            'WS Rule',
-                            'Empl.',
-                            'Company Code',
+                            'Name',
+                            'Position',
+                            'Unit',
+                            'Leave Type',
                             'Start Date',
                             'End Date',
                         ]}
                         content={this.props.data.map(data => ([
                             data.persNo,
-                            data.pa,
-                            data.planned,
-                            data.wsRule,
-                            data.employmentStatus,
-                            data.companyCode,
+                            `${data.lastName}, ${data.firstName}`,
+                            data.position,
+                            data.orgUnit,
+                            data.type,
                             moment(data.startDate).format('YYYY-MM-DD'),
                             moment(data.endDate).format('YYYY-MM-DD'),
                         ]))}/>
@@ -68,9 +66,9 @@ class WorkforcePage extends Component {
 
 const mapStateToProps = state => {
     return {
-        phase: state.workforce.phase,
-        data: state.workforce.data,
+        phase: state.leave.phase,
+        data: state.leave.data,
     }
 }
 
-export default connect(mapStateToProps)(WorkforcePage);
+export default connect(mapStateToProps)(LeavePage);

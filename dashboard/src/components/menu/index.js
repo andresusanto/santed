@@ -14,6 +14,7 @@ class Menu extends Component {
                 <div data-menu="menu-container" className="navbar-container main-menu-content container center-layout">
                     <ul id="main-menu-navigation" data-menu="menu-navigation" className="nav navbar-nav">
                         {pages.map(page => {
+                            if (page.menuConfig.hide) return null;
                             const isActive = this.context.router.route.location.pathname === page.path;
                             const activeClass = isActive ? ' active-menu' : '';
                             return (

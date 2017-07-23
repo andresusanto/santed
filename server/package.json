@@ -9,7 +9,20 @@
   "author": "Brownie (Ahmad Zaky @azaky, Alif Raditya Rochman @alifradityar, Andre Susanto @andresusanto)",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "csvtojson": "^1.1.7",
+    "express": "^4.15.2",
+    "express-fileupload": "^0.1.4",
+    "leftpad": "0.0.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
+    "mongoose": "^4.11.3",
+    "priorityqueuejs": "^1.0.0",
+    "q": "^1.5.0",
+    "stream-buffers": "^3.0.1",
+    "winston": "^2.3.1",
+    "winston-papertrail": "^1.0.5"
   }
 }

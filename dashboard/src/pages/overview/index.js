@@ -19,10 +19,10 @@ class OverviewPage extends Component {
         return (
             <div>
                 <div className="row">
-                    <StatusBox text="coba" color="primary" icon="check" value="78%"/>
-                    <StatusBox text="coba" color="primary" icon="check" value="78%"/>
-                    <StatusBox text="coba" color="primary" icon="check" value="78%"/>
-                    <StatusBox text="coba" color="primary" icon="check" value="78%"/>
+                    <StatusBox text="Task Completed" color="primary" icon="check" value="78%"/>
+                    <StatusBox text="Field Temperature" color="danger" icon="thermometer-empty" value="38&#8451;"/>
+                    <StatusBox text="Air Pressure" color="success" icon="asterisk" value="766 mmHg"/>
+                    <StatusBox text="Earth Quake" color="warning" icon="globe" value="~ 1 mo ago"/>
                 </div>
                 <ContentBox title="Overview">
                     Coba

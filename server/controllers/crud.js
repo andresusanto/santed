@@ -1,3 +1,4 @@
+const _ =  require('lodash');
 const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('../logger');
@@ -29,7 +30,8 @@ const CRUD = (Model) => {
     });
 
     router.get('/find', (req, res) => {
-        Model.find(req.query)
+        const query = Model.find(req.query).limit(100);
+        query.exec()
             .then((data) => {
                 return res.status(200).json(data);
             })
@@ -58,14 +60,33 @@ const CRUD = (Model) => {
     });
 
     router.delete('/deleteById/:id', (req, res) => {
-        const id = req.params.id;
-        Model.remove({ _id: id }, (err, data) => {
-            if (err) {
-                return res.status(500).json({ error: err.message });
-            }
-            return res.status(200).json(data);
-        });
+        let id;
+        try {
+            id = ObjectId(req.params.id);
+        } catch (err) {
+            return res.status(400).json({ error: err.message });
+        }
+        Model.remove({ _id: id })
+            .then((removed) => {
+                return res.status(200).json(removed);
+            })
+            .catch(errorCallback(res));
     });
+
+    router.delete('/delete', (req, res) => {
+        // prevents delete everything
+        if (!req.query || Object.keys(req.query).length === 0) {
+            return res.status(400).json({ error: 'At least one attribute should be present' });
+        }
+        if (_.some(req.query, (obj) => !obj)) {
+            return res.status(400).json({ error: 'Empty attribute is not allowed' });
+        }
+        Model.remove(req.query)
+            .then((removed) => {
+                return res.status(200).json(removed);
+            })
+            .catch(errorCallback(res));
+    })
 
     return router;
 };

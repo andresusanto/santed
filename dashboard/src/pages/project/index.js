@@ -51,7 +51,7 @@ class ProjectPage extends Component {
                             'Assignments',
                             'Rejected',
                         ]}
-                        content={this.props.data.map(data => ([
+                        content={this.props.data.sort((a, b) => moment(b.created) - moment(a.created)).map(data => ([
                             data.name,
                             data.type,
                             moment(data.startDate).format('YYYY-MM-DD'),

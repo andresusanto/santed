@@ -2,7 +2,7 @@
   "name": "dashboard",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://andresusanto.github.io/santed",
+  "homepage": "http://santed.susan.to",
   "dependencies": {
     "axios": "^0.16.2",
     "moment": "^2.18.1",
@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "REACT_APP_API_ENDPOINT=http://santed.susan.to:8000 REACT_APP_GQL_ENDPOINT=http://santed.susan.to:8081/graphql react-scripts start",
-    "build": "react-scripts build",
+    "build": "REACT_APP_API_ENDPOINT=http://santed.susan.to:8000 REACT_APP_GQL_ENDPOINT=http://santed.susan.to:8081/graphql react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",

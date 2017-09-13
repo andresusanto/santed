@@ -1,5 +1,5 @@
 <ion-header>
-	<ion-toolbar color="primary">
+	<ion-toolbar color="custom-project">
 		<ion-buttons left>
             <button ion-button (click)="goBack()">
                 <ion-icon class="customIcon" name="arrow-back"></ion-icon>
@@ -8,12 +8,6 @@
 		<ion-title>
 			Projects
 		</ion-title>
-
-		<ion-buttons end >
-			<button ion-button clear color="light">
-				<ion-icon name="notifications"></ion-icon>
-			</button>
-		</ion-buttons>
 	</ion-toolbar>
 </ion-header>
 
@@ -21,6 +15,10 @@
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
+    <div style="background-color:#efefef">
+        <div class="project-header">
+        </div>
+    </div>
 	<ion-list>
         <ion-list-header style="color:#d35400">
             Need your confirmation!

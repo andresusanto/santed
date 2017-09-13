@@ -1,0 +1,58 @@
+<ion-header>
+	<ion-toolbar color="custom-safety">
+		<ion-buttons left>
+            <button ion-button (click)="goBack()">
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+		<ion-title>
+			{{safety.name}}
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="safety-detail" no-scroll>
+	<ion-list>
+        <ion-list-header>
+            Summary
+        </ion-list-header>
+        <div class="loading-error-info">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <div *ngIf="!isLoading && isError">
+                Connection problem occured.
+            </div>
+        </div>
+        <div>
+            <ion-item>
+                Pressure
+                <ion-note class="notes-highlight" item-end>
+                    {{safety.pressure}}
+                </ion-note>
+            </ion-item>
+           <div class="chart1" style="display: block;">
+            <canvas baseChart width="400" height="400"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"></canvas>
+            </div>
+            <ion-item>
+                Temperature
+                <ion-note class="notes-highlight" item-end>
+                    {{safety.temperature}}
+                </ion-note>
+            </ion-item>
+            <div class="chart2" style="display: block;">
+                <canvas baseChart width="400" height="400"
+                            [datasets]="lineChartData2"
+                            [labels]="lineChartLabels2"
+                            [options]="lineChartOptions"
+                            [colors]="lineChartColors"
+                            [legend]="lineChartLegend"
+                            [chartType]="lineChartType"></canvas>
+                </div>
+        </div>
+    </ion-list>
+</ion-content>

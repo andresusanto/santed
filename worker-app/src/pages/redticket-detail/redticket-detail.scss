@@ -1,7 +1,7 @@
 page-redticket-detail {
     ion-list-header {
         .label-md {
-            color: #f1582c;
+            color: #16a085;
         }
     }
     .list-header-md {
@@ -16,11 +16,12 @@ page-redticket-detail {
     .note-md {
         position: absolute;
         right: 15px;
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         color: #fff;
     }
     .notes-highlight {
-        color: #f1582c;
+        color: #16a085;
+        font-weight: 700;
     }
 
     .redticket-detail { 
@@ -34,6 +35,11 @@ page-redticket-detail {
                 }
             }
         }
+    }
+    .redticket-header {
+        height: 100px;
+        background: url(../assets/imgs/redticket-bg.png) center center no-repeat;
+        background-size: cover;
     }
     .loading-error-info {
         text-align: center;

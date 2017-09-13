@@ -1,7 +1,7 @@
 page-absence-detail {
     ion-list-header {
         .label-md {
-            color: #f1582c;
+            color: #f1c40f;
         }
     }
     .list-header-md {
@@ -16,11 +16,12 @@ page-absence-detail {
     .note-md {
         position: absolute;
         right: 15px;
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         color: #fff;
     }
     .notes-highlight {
-        color: #f1582c;
+        color: #f1c40f;
+        font-weight: 700;
     }
 
     .absence-detail { 
@@ -34,6 +35,11 @@ page-absence-detail {
                 }
             }
         }
+    }
+    .absence-header {
+        height: 100px;
+        background: url(../assets/imgs/absence-bg.png) center center no-repeat;
+        background-size: cover;
     }
     .loading-error-info {
         text-align: center;

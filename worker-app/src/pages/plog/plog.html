@@ -1,5 +1,5 @@
 <ion-header>
-	<ion-toolbar color="primary">
+	<ion-toolbar color="custom-project">
 		<ion-buttons left>
             <button ion-button (click)="goBack()">
                 <ion-icon class="customIcon" name="arrow-back"></ion-icon>
@@ -12,6 +12,10 @@
 </ion-header>
 
 <ion-content class="plog" no-scroll>
+    <div style="background-color:#efefef">
+        <div class="project-header">
+        </div>
+    </div>
 	<ion-list>
         <ion-list-header>
             Summary
@@ -19,19 +23,19 @@
         <ion-item>
             Start date
             <ion-note class="notes-highlight" item-end>
-                {{ p.startDate | date: 'EEE, dd MMM yyyy' }} 
+                {{ project.startDate | date: 'EEE, dd MMM yyyy' }} 
             </ion-note>
         </ion-item>
         <ion-item>
             End date
             <ion-note class="notes-highlight" item-end>
-                {{ p.endDate | date: 'EEE, dd MMM yyyy' }} 
+                {{ project.endDate | date: 'EEE, dd MMM yyyy' }} 
             </ion-note>
         </ion-item>
         <ion-item>
             Description
             <ion-note class="notes-highlight" item-end>
-                {{ p.description }} 
+                {{ project.description }} 
             </ion-note>
         </ion-item>
         <ion-item>
@@ -44,63 +48,63 @@
             Logs
         </ion-list-header>
         <ion-item class="check-in">
-            <img class="item-image" src="assets/imgs/login.png"/>
+            <img class="item-image" src="assets/imgs/checka.png"/>
             <div class="item-content">
-                Checked in at Gate B
+                Gate B
             </div>
             <ion-note item-end>
                 17 May 2017 
             </ion-note>
         </ion-item>
         <ion-item class="check-out">
-            <img class="item-image" src="assets/imgs/logout.png"/>
+            <img class="item-image" src="assets/imgs/checkb.png"/>
             <div class="item-content">
-                Checked out at Gate A
+                Gate A
             </div>
             <ion-note item-end>
                 27 April 2017 
             </ion-note>
         </ion-item>
         <ion-item class="check-in">
-            <img class="item-image" src="assets/imgs/login.png"/>
+            <img class="item-image" src="assets/imgs/checka.png"/>
             <div class="item-content">
-                Checked in at Gate C
+                Gate C
             </div>
             <ion-note item-end>
                 7 April 2017 
             </ion-note>
         </ion-item>
         <ion-item class="check-out">
-            <img class="item-image" src="assets/imgs/logout.png"/>
+            <img class="item-image" src="assets/imgs/checkb.png"/>
             <div class="item-content">
-                Checked out at Gate C
+                Gate C
             </div>
             <ion-note item-end>
                 25 March 2017 
             </ion-note>
         </ion-item>
         <ion-item class="check-in">
-            <img class="item-image" src="assets/imgs/login.png"/>
+            <img class="item-image" src="assets/imgs/checka.png"/>
             <div class="item-content">
-                Checked in at Gate A
+                Gate A
             </div>
             <ion-note item-end>
                 20 March 2017 
             </ion-note>
         </ion-item>
         <ion-item class="check-out">
-            <img class="item-image" src="assets/imgs/logout.png"/>
+            <img class="item-image" src="assets/imgs/checkb.png"/>
             <div class="item-content">
-                Checked out at Gate B
+                Gate B
             </div>
             <ion-note item-end>
                 18 March 2017 
             </ion-note>
         </ion-item>
         <ion-item class="check-in">
-            <img class="item-image" src="assets/imgs/login.png"/>
+            <img class="item-image" src="assets/imgs/checka.png"/>
             <div class="item-content">
-                Checked in at Gate A
+                Gate A
             </div>
             <ion-note item-end>
                 17 March 2017 

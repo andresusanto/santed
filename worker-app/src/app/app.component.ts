@@ -14,6 +14,7 @@ import {RedTicketPage} from '../pages/redticket/redticket';
 import {RedTicketDetailPage} from '../pages/redticket-detail/redticket-detail';
 import {PLogPage} from '../pages/plog/plog';
 import {SafetyPage} from '../pages/safety/safety';
+import {SafetyDetailPage} from '../pages/safety-detail/safety-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -52,6 +53,7 @@ export class BazaarApp {
     { title: 'Red tickets', component: RedTicketPage },
     { title: 'Red ticket Detail', component: RedTicketDetailPage },
     { title: 'Safety', component: SafetyPage },
+    { title: 'Safety Detail', component: SafetyDetailPage },
   ];
   rootPage: any = LoginPage;
   constructor(

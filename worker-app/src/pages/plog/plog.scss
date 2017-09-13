@@ -1,7 +1,7 @@
 page-plog {
     ion-list-header {
         .label-md {
-            color: #f1582c;
+            color: #e67e22;
         }
     }
     .list-header-md {
@@ -16,19 +16,26 @@ page-plog {
     .note-md {
         position: absolute;
         right: 15px;
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         color: #fff;
     }
     .notes-highlight {
-        color: #f1582c;
+        color: #e67e22;
+        font-weight: 700;
     }
     .check-in {
-        background-color: #27ae60;
-        color:#fff
+        // background-color: #27ae60;
+        color:#7b441a;
+        .note-md {
+            color:#7b441a
+        }
     }
     .check-out {
-        background-color: #e67e22;
-        color:#fff
+        // background-color: #e67e22;
+        color:#f90000;
+        .note-md {
+            color:#f90000
+        }
     }
 
     .item-image {
@@ -54,5 +61,10 @@ page-plog {
                 }
             }
         }
+    }
+    .project-header {
+        height: 100px;
+        background: url(../assets/imgs/project-bg.png) center center no-repeat;
+        background-size: cover;
     }
 }

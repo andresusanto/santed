@@ -1,5 +1,8 @@
 {
   "name": "IonicBazaar",
   "app_id": "79bf9c33",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

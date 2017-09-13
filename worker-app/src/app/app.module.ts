@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ChartsModule } from 'ng2-charts';
 import { IonicApp, IonicModule } from 'ionic-angular';
 
 import { BazaarApp } from './app.component';
@@ -18,6 +18,7 @@ import { RedTicketDetailPage } from '../pages/redticket-detail/redticket-detail'
 import { RedTicketPage } from '../pages/redticket/redticket';
 import { PLogPage } from '../pages/plog/plog';
 import { SafetyPage } from '../pages/safety/safety';
+import { SafetyDetailPage } from '../pages/safety-detail/safety-detail';
 import { HttpModule } from '@angular/http';
 
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
@@ -26,7 +27,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 
 const pages = [ LoginPage, ProfilePage, ClockPage, ProjectPage, AbsencePage, AbsenceAddPage, 
-  AbsenceDetailPage, NotificationPage, LicensePage, RedTicketPage, PLogPage, SafetyPage, RedTicketDetailPage, LicenseDetailPage];
+  AbsenceDetailPage, NotificationPage, LicensePage, RedTicketPage, PLogPage, SafetyPage, RedTicketDetailPage, LicenseDetailPage, SafetyDetailPage];
 
 const nativeProviders = [ SplashScreen, StatusBar, BluetoothSerial ];
 
@@ -39,6 +40,7 @@ const nativeProviders = [ SplashScreen, StatusBar, BluetoothSerial ];
   imports: [
     BrowserModule,
     HttpModule,
+    ChartsModule,
     IonicModule.forRoot(BazaarApp)
   ],
   bootstrap: [IonicApp],

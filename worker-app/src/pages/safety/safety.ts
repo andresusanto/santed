@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {SafetyService} from '../../services/SafetyService';
+import {SafetyDetailPage} from '../../pages/safety-detail/safety-detail';
 
 @Component({
   selector: 'page-safety',
@@ -60,6 +61,10 @@ export class SafetyPage {
   }
   
   constructor(public nav: NavController, private safetyService: SafetyService) {}
+
+  goToSafetyDetail(id) {
+    this.nav.push(SafetyDetailPage, { id: id });
+  }
 
   goBack(){
     this.nav.pop();

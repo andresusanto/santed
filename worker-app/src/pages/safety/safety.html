@@ -1,5 +1,5 @@
 <ion-header>
-	<ion-toolbar color="primary">
+	<ion-toolbar color="custom-safety">
 		<ion-buttons left>
             <button ion-button (click)="goBack()">
                 <ion-icon class="customIcon" name="arrow-back"></ion-icon>
@@ -8,12 +8,6 @@
 		<ion-title>
 			Safety
 		</ion-title>
-
-		<ion-buttons end >
-			<button ion-button clear color="light">
-				<ion-icon name="notifications"></ion-icon>
-			</button>
-		</ion-buttons>
 	</ion-toolbar>
 </ion-header>
 
@@ -21,6 +15,10 @@
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
+    <div style="background-color:#efefef">
+        <div class="safety-header">
+        </div>
+    </div>
     <ion-list>
         <ion-list-header style="color:#c0392b">
             Warning! Anomaly detected!
@@ -34,7 +32,7 @@
                 No data found.
             </div>
         </div>
-        <ion-item *ngFor="let s of siteDanger" style="background-color: #c0392b; color: #fff;">
+        <ion-item *ngFor="let s of siteDanger" style="background-color: #c0392b; color: #fff;" (click)="goToSafetyDetail(s._id)">
             <div>
                 <img class="item-image" src="assets/imgs/warning.png"/>
                 <div class="item-content">
@@ -73,7 +71,7 @@
                 No data found.
             </div>
         </div>
-        <ion-item *ngFor="let s of siteNormal" style="background-color: #16a085; color: #fff;" >
+        <ion-item *ngFor="let s of siteNormal" style="background-color: #16a085; color: #fff;" (click)="goToSafetyDetail(s._id)">
             <div>
                 <img class="item-image" src="assets/imgs/success.png"/>
                 <div class="item-content">

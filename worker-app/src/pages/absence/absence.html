@@ -1,5 +1,5 @@
 <ion-header>
-	<ion-toolbar color="primary">
+	<ion-toolbar color="custom-absence">
 		<ion-buttons left>
             <button ion-button (click)="goBack()">
                 <ion-icon class="customIcon" name="arrow-back"></ion-icon>
@@ -8,12 +8,6 @@
 		<ion-title>
 			Absences
 		</ion-title>
-
-		<ion-buttons end >
-			<button ion-button clear color="light">
-				<ion-icon name="notifications"></ion-icon>
-			</button>
-		</ion-buttons>
 	</ion-toolbar>
 </ion-header>
 
@@ -21,8 +15,10 @@
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
-    <div class="absence-header">
-        <button ion-button block type="submit" (click)="goToAddAbsence()">Create Request</button>
+    <div style="background-color:#efefef">
+        <div class="absence-header">
+            <button ion-button block type="submit" (click)="goToAddAbsence()">Create Request</button>
+        </div>
     </div>
 	<ion-list>
         <ion-list-header style="color: #d35400;">

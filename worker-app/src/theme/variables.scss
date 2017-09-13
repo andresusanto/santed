@@ -33,8 +33,14 @@ $colors: (
   success:    #3aaf92,
   assertive:  #ff5722,
   rating:     #ffc600,
-  theme:      #ff6b6b
+  theme:      #ff6b6b,
 
+  custom-clocking: #d35400,
+  custom-project: #e67e22,
+  custom-absence: #f1c40f,
+  custom-redticket: #16a085,
+  custom-license: #27ae60,
+  custom-safety: #2ecc71
 );
 
 //$text-color:        map-get($colors, favoritedark);

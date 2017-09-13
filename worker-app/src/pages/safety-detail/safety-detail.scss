@@ -1,7 +1,7 @@
-page-license-detail {
+page-safety-detail {
     ion-list-header {
         .label-md {
-            color: #27ae60;
+            color: #f1582c;
         }
     }
     .list-header-md {
@@ -16,15 +16,14 @@ page-license-detail {
     .note-md {
         position: absolute;
         right: 15px;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         color: #fff;
     }
     .notes-highlight {
-        color: #27ae60;
-        font-weight: 700;
+        color: #f1582c;
     }
 
-    .license-detail { 
+    .safety-detail { 
         ion-list {
 
             ion-item {
@@ -35,11 +34,6 @@ page-license-detail {
                 }
             }
         }
-    }
-    .license-header {
-        height: 100px;
-        background: url(../assets/imgs/license-bg.png) center center no-repeat;
-        background-size: cover;
     }
     .loading-error-info {
         text-align: center;

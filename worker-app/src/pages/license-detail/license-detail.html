@@ -1,5 +1,5 @@
 <ion-header>
-	<ion-toolbar color="primary">
+	<ion-toolbar color="custom-license">
 		<ion-buttons left>
             <button ion-button (click)="goBack()">
                 <ion-icon class="customIcon" name="arrow-back"></ion-icon>
@@ -12,6 +12,10 @@
 </ion-header>
 
 <ion-content class="license-detail" no-scroll>
+    <div style="background-color:#efefef">
+        <div class="license-header">
+        </div>
+    </div>
 	<ion-list>
         <ion-list-header>
             Summary
@@ -44,13 +48,13 @@
             <ion-item>
                 Created
                 <ion-note class="notes-highlight" item-end>
-                    {{license.created}}
+                    {{license.created | date: 'EEE, dd MMM yyyy' }}
                 </ion-note>
             </ion-item>
             <ion-item>
                 Last update
                 <ion-note class="notes-highlight" item-end>
-                    {{license.lastUpdateTime}}
+                    {{license.lastUpdateTime | date: 'EEE, dd MMM yyyy' }}
                 </ion-note>
             </ion-item>
             <ion-item>

@@ -16,4 +16,10 @@ export class SafetyService {
         const response = this.http.get(fullUrl).map(res => res.json());
         return response;
     }
+
+    get(id) {
+        const fullUrl = `${this.url}/findById/${id}`;
+        const response = this.http.get(fullUrl).map(res => res.json());
+        return response;
+    }
 }

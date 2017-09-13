@@ -47,6 +47,11 @@ page-project {
             }
         }
     }
+    .project-header {
+        height: 100px;
+        background: url(../assets/imgs/project-bg.png) center center no-repeat;
+        background-size: cover;
+    }
     ion-list-header {
         border: 0px !important;
     }

@@ -48,8 +48,9 @@ page-license {
         }
     }
     .license-header {
-        padding: 20px 100px;
-        background-color: #ddd;
+        height: 100px;
+        background: url(../assets/imgs/license-bg.png) center center no-repeat;
+        background-size: cover;
     }
     ion-list-header {
         border: 0px !important;

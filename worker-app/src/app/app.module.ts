@@ -21,7 +21,9 @@ import { SafetyPage } from '../pages/safety/safety';
 import { SafetyDetailPage } from '../pages/safety-detail/safety-detail';
 import { HttpModule } from '@angular/http';
 
+import { BluetoothService } from '../services/BluetoothService';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+import { BLE } from '@ionic-native/ble';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -29,7 +31,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 const pages = [ LoginPage, ProfilePage, ClockPage, ProjectPage, AbsencePage, AbsenceAddPage, 
   AbsenceDetailPage, NotificationPage, LicensePage, RedTicketPage, PLogPage, SafetyPage, RedTicketDetailPage, LicenseDetailPage, SafetyDetailPage];
 
-const nativeProviders = [ SplashScreen, StatusBar, BluetoothSerial ];
+const nativeProviders = [ SplashScreen, StatusBar, BluetoothSerial, BLE ];
 
 
 @NgModule({
@@ -48,7 +50,7 @@ const nativeProviders = [ SplashScreen, StatusBar, BluetoothSerial ];
     BazaarApp,
     pages
   ],
-  providers: [ nativeProviders ]
+  providers: [ nativeProviders, BluetoothService ]
 
 })
 export class AppModule {}

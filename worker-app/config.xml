@@ -89,4 +89,8 @@
     <plugin name="cordova-plugin-bluetooth-serial" spec="~0.4.7" />
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
     <engine name="android" spec="~6.1.2" />
+    <plugin name="cordova-plugin-estimote" spec="~0.8.0" />
+    <allow-navigation href="http://192.168.99.1:8101" />
+    <allow-navigation href="http://172.17.15.206:8100" />
+    <plugin name="cordova-plugin-ble-central" spec="~1.1.4" />
 </widget>

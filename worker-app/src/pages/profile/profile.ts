@@ -7,7 +7,7 @@ import {AbsencePage} from '../../pages/absence/absence';
 import {LicensePage} from '../../pages/license/license';
 import {RedTicketPage} from '../../pages/redticket/redticket';
 import {SafetyPage} from '../../pages/safety/safety';
-import {BluetoothSerial} from '@ionic-native/bluetooth-serial';
+import {BluetoothService} from '../../services/BluetoothService';
 
 @Component({
   selector: 'page-profile',
@@ -15,40 +15,8 @@ import {BluetoothSerial} from '@ionic-native/bluetooth-serial';
 })
 export class ProfilePage {
 
-  constructor(public nav: NavController, private bluetoothSerial: BluetoothSerial) {
-    if (!this.bluetoothSerial.isEnabled) {
-      this.bluetoothSerial.enable().then(() => {
-        this.bluetoothSerial.setDiscoverable(0);
-        this.continiousTransmit();
-      });
-    } else {
-      this.continiousTransmit();
-    }
-  }
-
-  continiousTransmit() {
-    this.bluetoothSerial.list().then((data) => {
-      const result = {
-        data: [],
-      };
-      data.forEach((d) => {
-        if (d.name && d.name.startsWith("x:")) {
-          const dataInName = JSON.parse(d.name.substr(3));
-          dataInName.data && dataInName.data.forEach((dd) => {
-            result.data.push({
-              id: dd.id,
-              type: dd.type,
-              value: dd.value,
-            });
-          });
-        } else {
-          // TODO: Check for beacon type
-          result.data.push(d);
-        }
-      });
-      const newName = "x:" + JSON.stringify(result);
-      this.bluetoothSerial.setName(newName)
-    });
+  constructor(public nav: NavController, private bluetoothService: BluetoothService) {
+    this.bluetoothService.startScanBackground();
   }
 
   goToClock() {

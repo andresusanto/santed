@@ -13,6 +13,7 @@ import {
     getProject,
 } from '../../actions';
 
+const UPDATER_INTERVAL = 5000;
 
 class ProjectPage extends Component {
     static contextTypes = {
@@ -25,9 +26,25 @@ class ProjectPage extends Component {
         data: PropTypes.array.isRequired,
     };
 
+    constructor() {
+        super();
+        this.state = {
+            realtime: false,
+        };
+    }
+
     componentWillMount() {
         this.props.dispatch(updateDocumentTitle('Project'));
         this.context.gql.dispatch(getProject());
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.phase === 'start' && nextProps.phase !== 'start') {
+            this.setState({realtime: true});
+            setTimeout(() => {
+                this.context.gql.dispatch(getProject());        
+            }, UPDATER_INTERVAL);
+        }
     }
 
     render() {
@@ -38,7 +55,7 @@ class ProjectPage extends Component {
                 <FilterBox onSearch={(tes) => {
                     console.log(tes);    
                 }}/>
-                {this.props.phase === 'start' ? (
+                {this.props.phase === 'start' && !this.state.realtime ? (
                     <Loading />
                 ) : (
                     <Table 
